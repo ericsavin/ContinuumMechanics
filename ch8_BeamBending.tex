@@ -1,0 +1,1089 @@
+% MG3 TD #8: Beam bending - Atomic force microscope
+% V1.0 March 2021
+% $Header: /cvsroot/latex-beamer/latex-beamer/solutions/generic-talks/generic-ornate-15min-45min.en.tex,v 1.5 2007/01/28 20:48:23 tantau Exp $
+\def\webDOI{http://dx.doi.org}
+\def\Folder{/Users/ericsavin/Documents/Cours/SG3-MMC/SLIDES_TD/}
+\def\Year{\Folder/2020-2021}
+\def\Sections{\Year/SECTIONS}
+%\def\figs{/Users/ericsavin/Documents/Cours/SG3-MMC/SLIDES_TD/FIGS}
+\def\figs{\Folder/FIGS}
+\def\figdynsto{/Users/ericsavin/Documents//Figures/DYNSTO}
+\def\symb{/Users/ericsavin/Documents/Latex/SYMBOL}
+\def\fonts{/Users/ericsavin/Documents/Latex/FONTS}
+\def\logos{/Users/ericsavin/Documents/Latex/LOGOS}
+
+\def\Onera{ONERA}
+\def\ECP{CentraleSup\'elec}
+
+
+\documentclass{beamer}
+
+% This file is a solution template for:
+
+% - Giving a talk on some subject.
+% - The talk is between 15min and 45min long.
+% - Style is ornate.
+
+
+
+% Copyright 2004 by Till Tantau <tantau@users.sourceforge.net>.
+%
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU Public License, version 2.
+%
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, I grant the extra permission to freely copy and
+% modify this file as you see fit and even to delete this copyright
+% notice. 
+
+
+\mode<presentation>
+{
+  \usetheme{Berkeley}
+  % or ...
+
+  \setbeamercovered{transparent}
+  % or whatever (possibly just delete it)
+}
+
+
+\usepackage[english]{babel}
+% or whatever
+
+\usepackage[latin1]{inputenc}
+% or whatever
+
+%\usepackage{mathtime}
+\usefonttheme{serif}
+%\usefonttheme{professionalfonts}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+
+\usepackage{amsmath}
+\usepackage{multimedia}
+\usepackage{mathrsfs}
+\usepackage{mathabx}
+\usepackage{color}
+\usepackage{pstricks}
+\usepackage{graphicx}
+%\usepackage[pdftex, pdfborderstyle={/S/U/W 1}]{hyperref}
+\usepackage{hyperref}
+\usepackage{bbm}
+\usepackage{cancel}
+\usepackage[Symbol]{upgreek}
+%\usepackage{mathbbol}
+%\DeclareSymbolFontAlphabet{\amsmathbb}{AMSb}
+%\usepackage[bbgreekl]{mathbbol}
+%\usepackage[mtpbbi]{mtpro2}
+
+%\usepackage[svgnames]{xcolor}
+
+%\input{\fonts/math0}
+%\input{\symb/structac} % Notations E. Savin
+%\input{\symb/logos}
+
+\newcommand{\ci}{\mathrm{i}}
+\newcommand{\trace}{\operatorname{Tr}}
+\newcommand{\Nset}{\mathbb{N}}
+\newcommand{\Zset}{\mathbb{Z}}
+\newcommand{\Rset}{\mathbb{R}}
+\newcommand{\Cset}{\mathbb{C}}
+\newcommand{\Sset}{\mathbb{S}}
+\newcommand{\Mset}{\mathbb{M}}
+\newcommand{\PhaseSpace}{\Omega}
+\newcommand{\ContSet}{{\mathcal C}}
+\newcommand{\id}{d}
+\newcommand{\iD}{\mathrm{D}}
+\newcommand{\iexp}{\mathrm{e}}
+\newcommand{\demi}{\frac{1}{2}}
+\newcommand{\imply}{\Rightarrow}
+
+% Algebra
+\newcommand{\itr}{{\sf T}}
+\newcommand{\Id}{{\boldsymbol I}}
+\newcommand{\IId}{\mathbb{I}}
+\newcommand{\aj}{a}
+\newcommand{\bj}{b}
+\newcommand{\cj}{c}
+\renewcommand{\dj}{d}
+\newcommand{\av}{{\boldsymbol\aj}}
+\newcommand{\bv}{{\boldsymbol\bj}}
+\newcommand{\cv}{{\boldsymbol\cj}}
+\newcommand{\dv}{{\boldsymbol\dj}}
+\newcommand{\uj}{u}
+\newcommand{\vj}{v}
+\newcommand{\xj}{x}
+\newcommand{\yj}{y}
+\newcommand{\zj}{z}
+\newcommand{\uv}{{\boldsymbol\uj}}
+\newcommand{\vv}{{\boldsymbol\vj}}
+\newcommand{\xv}{{\boldsymbol\xj}}
+\newcommand{\yv}{{\boldsymbol\yj}}
+\newcommand{\zv}{{\boldsymbol\zj}}
+\newcommand{\Aj}{A}
+\newcommand{\Bj}{B}
+\newcommand{\Av}{{\boldsymbol\Aj}}
+\newcommand{\Bv}{{\boldsymbol\Bj}}
+\newcommand{\Zgv}{{\boldsymbol Z}}
+
+% Analysis
+\newcommand{\grad}{{\boldsymbol\nabla}}
+\newcommand{\gradx}{{\grad_\xv}}
+\newcommand{\Grad}{{\mathbb D}}
+\newcommand{\Gradx}{{\Grad_\xv}}
+\renewcommand{\div}{\mathrm{div}}
+\newcommand{\divx}{{\div_\xv}}
+\newcommand{\Div}{\mathbf{Div}}
+\newcommand{\Divx}{{\Div_\xv}}
+
+% Kinematics
+\newcommand{\ej}{e}
+\renewcommand{\ij}{i}
+\newcommand{\pj}{p}
+\newcommand{\ev}{{\boldsymbol\ej}}
+\newcommand{\iv}{{\boldsymbol\ij}}
+\newcommand{\pv}{{\boldsymbol\pj}}
+\newcommand{\posij}{f}
+\newcommand{\posiv}{{\boldsymbol\posij}}
+\newcommand{\iposiv}{{\boldsymbol g}}
+\newcommand{\Fp}{{\mathbb F}}
+\newcommand{\GreenLj}{E}
+\newcommand{\GreenL}{{\mathbb\GreenLj}}
+\newcommand{\medium}{\Omega}
+\newcommand{\strainj}{\varepsilon}
+\newcommand*{\strain}{\mbox{$\hspace{0.2em}\rotatebox[x=0pt,y=0.2pt]{90}{\rule{0.02\linewidth}{0.4pt}}\hspace{-0.23em}\upvarepsilon$}}
+\newcommand*{\rotation}{{\boldsymbol R}}
+\newcommand*{\xiu}{\chi_1}
+\newcommand*{\xid}{\chi_2}
+\newcommand*{\Rot}{{\boldsymbol R}}
+\newcommand*{\dRot}{{\boldsymbol\Theta}}
+\newcommand*{\drotj}{\theta}
+\newcommand*{\drot}{{\boldsymbol\drotj}}
+\newcommand*{\Mstaticj}{J}
+\newcommand*{\Mstatic}{{\mathbb\Mstaticj}}
+
+% Dynamics
+\newcommand{\Cj}{C}
+\newcommand{\fj}{f}
+\newcommand{\Fj}{F}
+\newcommand{\gj}{g}
+\newcommand{\mj}{m}
+\newcommand{\nj}{n}
+\newcommand{\Tj}{T}
+%\newcommand{\cv}{{\boldsymbol c}}
+\newcommand{\Cv}{{\boldsymbol\Cj}}
+\newcommand{\fv}{{\boldsymbol\fj}}
+\newcommand{\Fv}{{\boldsymbol\Fj}}
+\newcommand{\gv}{{\boldsymbol\gj}}
+\newcommand{\mv}{{\boldsymbol\mj}}
+\newcommand{\nv}{{\boldsymbol\nj}}
+\newcommand{\Tv}{{\boldsymbol\Tj}}
+\newcommand{\roi}{\varrho}
+\newcommand*{\stressj}{\sigma}
+\newcommand*{\tressj}{\tau}
+\newcommand{\stress}{\mbox{$\hspace{0.3em}\rotatebox[x=0pt,y=0.2pt]{90}{\rule{0.017\linewidth}{0.4pt}}\hspace{-0.25em}\upsigma$}}
+\newcommand*{\tress}{{\boldsymbol\tressj}}
+\newcommand{\acj}{a}
+\newcommand{\acv}{{\boldsymbol\acj}}
+\newcommand{\Fresj}{R}
+\newcommand{\Mresj}{M}
+\newcommand{\Fres}{{\boldsymbol\Fresj}}
+\newcommand{\Mres}{{\boldsymbol\Mresj}}
+
+%\newcommand{\Zg}{{\bf\zgj}}
+%\newcommand{\xigj}{\xi}
+%\newcommand{\xig}{{\boldsymbol\xigj}}
+\newcommand{\kgj}{k}
+%\newcommand{\kgh}{\kgj_\ygj}
+%\newcommand{\kg}{{\bf\kgj}}
+\newcommand{\Kg}{{\bf K}}
+%\newcommand{\qg}{{\boldsymbol q}}
+%\newcommand{\pg}{{\boldsymbol p}}
+\newcommand{\hkg}{{\hat \kg}}
+\newcommand{\hpg}{\hat{\pg}}
+%\newcommand{\vg}{{\boldsymbol v}}
+\newcommand{\sg}{{\boldsymbol s}}
+%\newcommand{\stress}{\mathbb{\sigma}}
+\newcommand{\tenselasj}{{\Large C}}
+\newcommand{\tenselas}{\boldsymbol{\mathsf{\tenselasj}}}
+\newcommand{\tenscomp}{\boldsymbol{\mathsf{\Large S}}}
+\newcommand{\speci}{{\mathrm w}}
+\newcommand{\specij}{{\mathrm W}}
+\newcommand{\speciv}{{\bf \specij}}
+%\newcommand{\cjg}[1]{\overline{#1}}
+\newcommand{\eigv}{{\bf b}}
+\newcommand{\eigw}{{\bf c}}
+\newcommand{\eigl}{\lambda}
+\newcommand{\jeig}{\alpha}
+\newcommand{\keig}{\beta}
+\newcommand{\cel}{c}
+\newcommand{\bcel}{{\bf\cel}}
+\newcommand{\deng}{{\mathcal E}}
+\newcommand{\flowj}{\pi}
+\newcommand{\flow}{\boldsymbol\flowj}
+\newcommand{\Flowj}{\Pi}
+\newcommand{\Flow}{\boldsymbol\Flowj}
+\newcommand{\fluxinj}{g}
+\newcommand{\fluxin}{{\bf\fluxinj}}
+\newcommand{\dscat}{\sigma}
+\newcommand{\tdscat}{\Sigma}
+\newcommand{\collop}{{\mathcal Q}}
+\newcommand{\epsd}{\delta}
+\newcommand{\rscat}{\rho}
+\newcommand{\tscat}{\tau}
+\newcommand{\Rscat}{\mathcal{R}}
+\newcommand{\Tscat}{\mathcal{T}}
+\newcommand{\lscat}{\ell}
+%\newcommand{\floss}{\eta}
+\newcommand{\mdiff}{{\bf D}}
+%\newcommand{\demi}{\frac{1}{2}}
+\newcommand{\domain}{{\mathcal O}}
+\newcommand{\bdomain}{{\mathcal D}}
+\newcommand{\interface}{\Gamma}
+\newcommand{\sinterface}{\gamma_D}
+%\newcommand{\normal}{\hat{\bf n}}
+\newcommand{\bnabla}{\boldsymbol\nabla}
+%\newcommand{\esp}[1]{\mathbb{E}\{\smash{#1}\}}
+\newcommand{\mean}[1]{\underline{#1}}
+%\newcommand{\BB}{\mathbb{B}}
+%\newcommand{\II}{{\boldsymbol I}}
+%\newcommand{\TA}{\boldsymbol{\Gamma}}
+\newcommand{\Mdisp}{{\mathbf H}}
+\newcommand{\Hamil}{{\mathcal H}}
+\newcommand{\bzero}{{\bf 0}}
+
+\newcommand{\mass}{M}
+\newcommand{\damp}{D}
+\newcommand{\stif}{K}
+\newcommand{\dsp}{S}
+\newcommand{\dof}{q}
+\newcommand{\pof}{p}
+%\newcommand{\MM}{{\boldsymbol\mass}}
+\newcommand{\MD}{{\boldsymbol\damp}}
+\newcommand{\MK}{{\boldsymbol\stif}}
+\newcommand{\MS}{{\boldsymbol\dsp}}
+\newcommand{\Cov}{{\boldsymbol C}}
+\newcommand{\dofg}{{\boldsymbol\dof}}
+\newcommand{\pofg}{{\boldsymbol\pof}}
+\newcommand{\driftj}{b}
+\newcommand{\drifts}{{\boldsymbol \driftj}}
+\newcommand{\drift}{{\underline\drifts}}
+\newcommand{\scatj}{a}
+\newcommand{\scat}{{\boldsymbol\scatj}}
+\newcommand{\diff}{{\boldsymbol\sigma}}
+\newcommand{\load}{F}
+\newcommand{\loadg}{{\boldsymbol\load}}
+\newcommand{\pdf}{\pi}
+\newcommand{\tpdf}{\pdf_t}
+\newcommand{\fg}{{\boldsymbol f}}
+%\newcommand{\Ugj}{U}
+\newcommand{\Vgj}{V}
+\newcommand{\Xgj}{X}
+\newcommand{\Ygj}{Y}
+%\newcommand{\Ug}{{\boldsymbol\Ugj}}
+\newcommand{\Vg}{{\boldsymbol\Vgj}}
+%\newcommand{\Qg}{{\boldsymbol Q}}
+\newcommand{\Pg}{{\boldsymbol P}}
+\newcommand{\Xg}{{\boldsymbol\Xgj}}
+\newcommand{\Yg}{{\boldsymbol\Ygj}}
+\newcommand{\flux}{{\boldsymbol J}}
+\newcommand{\wiener}{W}
+\newcommand{\whitenoise}{B}
+\newcommand{\Wiener}{{\boldsymbol\wiener}}
+\newcommand{\White}{{\boldsymbol\white}}
+\newcommand{\paraj}{\nu}
+\newcommand{\parag}{{\boldsymbol\paraj}}
+\newcommand{\parae}{\hat{\parag}}
+\newcommand{\erroj}{\epsilon}
+\newcommand{\error}{{\boldsymbol\erroj}}
+\newcommand{\biaj}{b}
+\newcommand{\bias}{{\boldsymbol\biaj}}
+%\newcommand{\disp}{{\boldsymbol V}}
+\newcommand{\Fisher}{{\mathcal I}}
+\newcommand{\likelihood}{{\mathcal L}}
+
+\newcommand{\heps}{\varepsilon}
+%\newcommand{\roi}{\varrho}
+\newcommand{\jump}[1]{\llbracket{#1}\rrbracket}
+\newcommand{\scal}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\abs}[1]{\left|#1\right|}
+%\newcommand{\po}{\operatorname{o}}
+\newcommand{\FFT}[1]{\widehat{#1}}
+\newcommand{\indic}[1]{{\mathbf 1}_{#1}}
+\newcommand{\impulse}{{\mathbbm h}}
+\newcommand{\frf}{\FFT{\impulse}}
+
+%\renewcommand{\Moy}[1]{{\boldsymbol\mu}_{#1}}
+%\renewcommand{\Rcor}[1]{{\boldsymbol R}_{#1}}
+%\renewcommand{\Mw}[1]{{\boldsymbol M}_{#1}}
+%\renewcommand{\Sw}[1]{{\boldsymbol S}_{#1}}
+%\renewcommand{\esp}[1]{{\mathbb E}\{#1\}}
+
+\newcommand{\emphb}[1]{\textcolor{blue}{#1}}
+\newcommand{\mycite}[1]{\textcolor{red}{#1}}
+\newcommand{\mycitb}[1]{\textcolor{red}{[{\it #1}]}}
+
+\newcommand{\PDFU}{{\mathcal U}}
+\newcommand{\PDFN}{{\mathcal N}}
+\newcommand{\TK}{{\boldsymbol\Pi}}
+\newcommand{\TKij}{\pi}
+\newcommand{\TKi}{{\boldsymbol\pi}}
+\newcommand{\SMi}{\TKij^*}
+\newcommand{\SM}{\TKi^*}
+\newcommand{\lagmuli}{\lambda}
+\newcommand{\lagmul}{{\boldsymbol\lagmuli}}
+\newcommand{\constraint}{{\boldsymbol C}}
+\newcommand{\mconstraint}{\mean{\constraint}}
+
+\newcommand{\mybox}[1]{\fbox{\begin{minipage}{0.93\textwidth}{#1}\end{minipage}}}
+\newcommand{\defcolor}[1]{\textcolor{blue}{#1}}
+
+%\definecolor{rose}{LightPink}%{rgb}{251,204,231}
+
+\newtheorem{mydef}{Definition}
+\newtheorem{mythe}{Theorem}
+\newtheorem{myprop}{Proposition}
+
+% Or whatever. Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
+
+\title[1EL5000/S8]
+{Atomic force microscope}
+
+\subtitle{1EL5000--Continuum Mechanics -- Tutorial Class \#8} % (optional)
+
+\author[\'E. Savin] % (optional, use only with lots of authors)
+{\'E. Savin\inst{1,2}\\ \scriptsize{\texttt{eric.savin@\{centralesupelec,onera\}.fr}}}%\inst{1} }
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[Onera] % (optional, but mostly needed)
+{\inst{1}{Information Processing and Systems Dept.\\\Onera, France}
+\and
+ \inst{2}{Mechanical and Civil Engineering Dept.\\\ECP, France}}%
+%  Department of Theoretical Philosophy\\
+%  University of Elsewhere}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+%\date[Short Occasion] % (optional)
+\date{\today}
+\date{March 11, 2021}
+
+\subject{Atomic force microscope}
+% This is only inserted into the PDF information catalog. Can be left
+% out. 
+
+
+
+% If you have a file called "university-logo-filename.xxx", where xxx
+% is a graphic format that can be processed by latex or pdflatex,
+% resp., then you can add a logo as follows:
+
+% \pgfdeclareimage[height=0.5cm]{university-logo}{university-logo-filename}
+% \logo{\pgfuseimage{university-logo}}
+
+
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+\AtBeginSection[]
+%\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{Outline}
+    \tableofcontents[currentsection]%,currentsubsection]
+  \end{frame}
+}
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+
+%\beamerdefaultoverlayspecification{<+->}
+
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+  \tableofcontents
+  % You might wish to add the option [pausesections]
+\end{frame}
+
+
+% Since this a solution template for a generic talk, very little can
+% be said about how it should be structured. However, the talk length
+% of between 15min and 45min and the theme suggest that you stick to
+% the following rules:  
+
+% - Exactly two or three sections (other than the summary).
+% - At *most* three subsections per section.
+% - Talk about 30s to 2min per frame. So there should be between about
+%   15 and 30 frames, all told.
+
+\section{Kinematics}
+\input{\Sections/BeamKinematics}
+
+\section{Statics}
+\input{\Sections/BeamStatics}
+
+\section{Stresses}
+\input{\Sections/BeamStresses}
+
+\section{6.1 Atomic force microscope}
+
+\begin{frame}{Atomic force microscope}{Setup}
+
+\begin{overprint}
+
+\onslide<1|handout:1>
+\vskip-20pt
+\begin{figure}
+\centering\includegraphics[scale=.45]{\figs/ch8-AFM}
+\end{figure}
+\vskip-20pt{\hspace*{8.5truecm}\mbox{\tiny{\copyright\ G. Puel}}}
+
+\vskip10pt
+\begin{columns}[t]
+\column{.33\textwidth}
+\centering\includegraphics[scale=.26]{\figs/ch8-BinnigG}\\
+{\scriptsize Gerd Binnig [1947--]}
+\column{.33\textwidth}
+\centering\includegraphics[scale=.33]{\figs/ch8-QuateCF}\\
+{\scriptsize Calvin Quate [1923--2019]}
+\column{.33\textwidth}
+\centering\includegraphics[scale=.3]{\figs/ch8-GerberC}\\
+{\scriptsize Christoph Gerber [1942--]}
+\end{columns}
+
+
+\onslide<2|handout:2>
+\begin{columns}[t]
+\column{.45\textwidth}
+\centering\includegraphics[scale=.1]{\figs/ch8-AFM-Pointe}
+%\vskip-10pt{\hspace{2.5truecm}\mbox{\tiny{\copyright\ G. Puel}}}
+\column{.55\textwidth}
+\vskip-110pt
+\centering\includegraphics[scale=.15]{\figs/ch8-AFM-Surface}
+\end{columns}
+\vskip20pt
+\begin{itemize}
+\item \href{http://toutestquantique.fr/afm/}{\textcolor{blue}{\texttt{http://toutestquantique.fr/afm/}}}
+\item \href{https://youtu.be/EUB0B5EUJK4}{\textcolor{blue}{\texttt{https://youtu.be/EUB0B5EUJK4}}}
+\end{itemize}
+
+\end{overprint}
+
+\end{frame}
+
+\begin{frame}{Atomic force microscope}{Solution}
+
+\begin{overprint}
+
+\onslide<1|handout:1>
+\vskip-20pt
+\begin{exampleblock}{Question \#1: Resultant force $\Fres$?}
+\begin{itemize}
+\item Local balance of forces on the cross-section $\Sigma$ at $s\in]0,L[$:
+\begin{displaymath}
+\Fres'+\fv_l=\bzero\,,
+\end{displaymath}
+where $\fv_l=\bzero$ because "the own weight of the beam can be neglected."
+\end{itemize}
+\end{exampleblock}
+
+\onslide<2|handout:2>
+\vskip-20pt
+\begin{exampleblock}{Question \#1: Resultant force $\Fres$?}
+\begin{itemize}
+\item Local balance of forces on the cross-section $\Sigma$ at $s\in]0,L[$:
+\begin{displaymath}
+\Fres'+\fv_l=\bzero\,,
+\end{displaymath}
+where $\fv_l=\bzero$ because "the own weight of the beam can be neglected."
+\item Therefore:
+\begin{displaymath}
+\Fres(s)={\boldsymbol C}^\text{st}=\Fres(L)=\Fres_L=F(d)\iv_1\,.
+\end{displaymath}
+\item No normal force, only a shear force.
+\end{itemize}
+\end{exampleblock}
+
+\onslide<3|handout:3>
+\vskip-20pt
+\begin{exampleblock}{Question \#1: Action of the fixed support on the beam?}
+\begin{itemize}
+\item Resultant force for the action of the fixed support at $s=0$:
+\begin{displaymath}
+\begin{split}
+\Fv^\text{support $\to$ beam} &=\int_{\Sigma(0)}\stress(-\iv_3) \id S \\
+&\overset{\text{def}}{=}-\Fres(0)
+\end{split}
+\end{displaymath}
+\end{itemize}
+\end{exampleblock}
+
+\onslide<4|handout:4>
+\vskip-20pt
+\begin{exampleblock}{Question \#1: Action of the fixed support on the beam?}
+\begin{itemize}
+\item Resultant force for the action of the fixed support at $s=0$:
+\begin{displaymath}
+\begin{split}
+\Fv^\text{support$\to$beam} &=\int_{\Sigma(0)}\stress(-\iv_3) \id S \\
+&\overset{\text{def}}{=}-\Fres(0)
+\end{split}
+\end{displaymath}
+\item Therefore:
+\begin{displaymath}
+\Fv^\text{support$\to$beam} = -F(d)\iv_1\,.
+\end{displaymath}
+\end{itemize}
+\end{exampleblock}
+
+\end{overprint}
+
+\end{frame}
+
+\begin{frame}{Atomic force microscope}{Solution}
+
+\begin{overprint}
+
+\onslide<1|handout:1>
+\vskip-20pt
+\begin{exampleblock}{Question \#2: Resultant moment $\Mres$?}
+\begin{itemize}
+\item Local balance of moments on the cross-section $\Sigma$ at $s\in]0,L[$:
+\begin{displaymath}
+\Mres'+\ev\times\Fres+\cv_l=\bzero\,,
+\end{displaymath}
+where $\cv_l=\bzero$ and $\ev=\iv_3$.
+\end{itemize}
+\end{exampleblock}
+
+\onslide<2|handout:2>
+\vskip-20pt
+\begin{exampleblock}{Question \#2: Resultant moment $\Mres$?}
+\begin{itemize}
+\item Local balance of moments on the cross-section $\Sigma$ at $s\in]0,L[$:
+\begin{displaymath}
+\Mres'+\iv_3\times\Fres=\bzero\,;
+\end{displaymath}
+\item Therefore:
+\begin{displaymath}
+\Mres'(s)=-\iv_3\times F(d)\iv_1=-F(d)\iv_2\,;
+\end{displaymath}
+\end{itemize}
+\end{exampleblock}
+
+\onslide<3|handout:3>
+\vskip-20pt
+\begin{exampleblock}{Question \#2: Resultant moment $\Mres$?}
+\begin{itemize}
+\item Local balance of moments on the cross-section $\Sigma$ at $s\in]0,L[$:
+\begin{displaymath}
+\Mres'+\iv_3\times\Fres=\bzero\,;
+\end{displaymath}
+\item Therefore:
+\begin{displaymath}
+\Mres'(s)=-\iv_3\times F(d)\iv_1=-F(d)\iv_2\,;
+\end{displaymath}
+\item Consequently:
+\begin{displaymath}
+\begin{split}
+\Mres(s) &=-F(d)(s-L)\iv_2+\Mres(L) \\
+&=F(d)(L-s)\iv_2
+\end{split}
+\end{displaymath}
+because $\Mres(L)=\Mres_L=\bzero$ ("an action [...] which is assumed to consist of a moment [...] equal to zero...").
+\end{itemize}
+\end{exampleblock}
+
+\onslide<4|handout:4>
+\vskip-20pt
+\begin{exampleblock}{Question \#2: Action of the fixed support on the beam?}
+\begin{itemize}
+\item Resultant moment for the action of the fixed support at $s=0$:
+\begin{displaymath}
+\begin{split}
+\Cv^\text{support $\to$ beam} &=\int_{\Sigma(0)}\xv_\Sigma\times\stress(-\iv_3) \id S \\
+&\overset{\text{def}}{=}-\Mres(0)
+\end{split}
+\end{displaymath}
+\end{itemize}
+\end{exampleblock}
+
+\onslide<5|handout:5>
+\vskip-20pt
+\begin{exampleblock}{Question \#2: Action of the fixed support on the beam?}
+\begin{itemize}
+\item Resultant moment for the action of the fixed support at $s=0$:
+\begin{displaymath}
+\begin{split}
+\Cv^\text{support$\to$beam} &=\int_{\Sigma(0)}\xv_\Sigma\times\stress(-\iv_3) \id S \\
+&\overset{\text{def}}{=}-\Mres(0)
+\end{split}
+\end{displaymath}
+\item Therefore:
+\begin{displaymath}
+\Cv^\text{support$\to$beam} =-F(d)L\iv_2\,.
+\end{displaymath}
+\end{itemize}
+\end{exampleblock}
+
+\end{overprint}
+
+\end{frame}
+
+\begin{frame}{Atomic force microscope}{Solution}
+
+\begin{overprint}
+
+\onslide<1|handout:1>
+\vskip-20pt
+\begin{exampleblock}{Question \#3: Normal stress $\stressj_{ee}$?}
+\begin{itemize}
+\item Normal stress:
+\begin{displaymath}
+\begin{split}
+\stressj_{ee} &=\frac{\Fresj_e}{S}+\scal{\xv_\Sigma,\ev\times\Mstatic^{-1}(\Mres_\Sigma)} \\
+&=\scal{\xv_\Sigma,\iv_3\times \frac{F(d)(L-s)}{I_2}\iv_2}\\
+&=- \frac{F(d)}{I_2}(L-s)\xiu\,;
+\end{split}
+\end{displaymath}
+\end{itemize}
+\end{exampleblock}
+
+\onslide<2|handout:2>
+\vskip-20pt
+\begin{exampleblock}{Question \#3: Normal stress $\stressj_{ee}$?}
+\begin{itemize}
+\item Normal stress:
+\begin{displaymath}
+\begin{split}
+\stressj_{ee} &=\frac{\Fresj_e}{S}+\scal{\xv_\Sigma,\ev\times\Mstatic^{-1}(\Mres_\Sigma)} \\
+&=\scal{\xv_\Sigma,\iv_3\times \frac{F(d)(L-s)}{I_2}\iv_2}\\
+&=- \frac{F(d)}{I_2}(L-s)\xiu\,;
+\end{split}
+\end{displaymath}
+\item The inertia tensor of $\Sigma=]-\frac{h}{2},\frac{h}{2}[\times]-\frac{b}{2},\frac{b}{2}[$ is:
+\begin{displaymath}
+\begin{split}
+\scriptstyle \Mstatic &= \;\scriptstyle \int_\Sigma(\norm{\xv_\Sigma}^2-\xv_\Sigma\otimes\xv_\Sigma)\id S \\
+&= \;\scriptstyle I_1\iv_1\otimes\iv_1+I_2\iv_2\otimes\iv_2+(I_1+I_2)\iv_3\otimes\iv_3 \\
+&= \;\scriptstyle \frac{hb^3}{12}\iv_1\otimes\iv_1+\frac{bh^3}{12}\iv_2\otimes\iv_2+\frac{bh}{12}(b^2+h^2)\iv_3\otimes\iv_3 \,.
+\end{split}
+\end{displaymath}
+\end{itemize}
+\end{exampleblock}
+
+\onslide<3|handout:3>
+\vskip-20pt
+\begin{exampleblock}{Question \#3: Normal stress $\stressj_{ee}$?}
+\begin{itemize}
+\item Normal stress:
+\begin{displaymath}
+\begin{split}
+\stressj_{ee} &=\frac{\Fresj_e}{S}+\scal{\xv_\Sigma,\ev\times\Mstatic^{-1}(\Mres_\Sigma)} \\
+&=\scal{\xv_\Sigma,\iv_3\times \frac{F(d)(L-s)}{I_2}\iv_2}\\
+&=- \frac{F(d)}{I_2}(L-s)\xiu\,;
+\end{split}
+\end{displaymath}
+\item Its maximum is reached at $s=0$ and $\xiu=-\frac{h}{2}$;
+\end{itemize}
+\end{exampleblock}
+
+\onslide<4|handout:4>
+\vskip-20pt
+\begin{exampleblock}{Question \#3: Normal stress $\stressj_{ee}$?}
+\begin{itemize}
+\item Normal stress:
+\begin{displaymath}
+\begin{split}
+\stressj_{ee} &=\frac{\Fresj_e}{S}+\scal{\xv_\Sigma,\ev\times\Mstatic^{-1}(\Mres_\Sigma)} \\
+&=\scal{\xv_\Sigma,\iv_3\times \frac{F(d)(L-s)}{I_2}\iv_2}\\
+&=- \frac{F(d)}{I_2}(L-s)\xiu\,;
+\end{split}
+\end{displaymath}
+\item Its maximum is reached at $s=0$ and $\xiu=-\frac{h}{2}$;
+\item The maximum force $F_\text{max}$ such that $\stressj_{ee}<\stressj_e$ is:
+\begin{displaymath}
+F_\text{max}<\frac{2I_2}{hL}\stressj_e=\frac{bh^2}{6L}\stressj_e=10.7\,\mu\text{N}\,.
+\end{displaymath}
+\end{itemize}
+\end{exampleblock}
+
+\end{overprint}
+
+\end{frame}
+
+%\begin{frame}{Atomic force microscope}{Solution}
+%
+%\begin{center}
+%\textcolor{red}{\LARGE {\bf TO BE CONTINUED!!!}}
+%\end{center}
+%
+%\end{frame}
+%
+%\end{document}
+
+\begin{frame}{Atomic force microscope}{Solution}
+
+\begin{overprint}
+
+\onslide<1|handout:1>
+\vskip-20pt
+\begin{exampleblock}{Question \#4: Transverse displacement $\uv_{G\Sigma}$?}
+\begin{itemize}
+\item Constitutive equation for the transverse displacement with Euler-Bernoulli's assumption:
+\begin{displaymath}
+\begin{split}
+\Mres_\Sigma(s) &=E\Mstatic(\ev\times\uv_{G\Sigma}''(s)) \\
+\imply\quad\iv_3\times\uv_{G\Sigma}''(s) &=\frac{F(d)(L-s)}{EI_2}\iv_2 \\
+\uv_{G\Sigma}''(s) &=\frac{F(d)(L-s)}{EI_2}\iv_2\times\iv_3\,;
+\end{split}
+\end{displaymath}
+\end{itemize}
+\end{exampleblock}
+
+\onslide<2|handout:2>
+\vskip-20pt
+\begin{exampleblock}{Question \#4: Transverse displacement $\uv_{G\Sigma}$?}
+\begin{itemize}
+\item Constitutive equation for the transverse displacement with Euler-Bernoulli's assumption:
+\begin{displaymath}
+\uv_{G\Sigma}''(s)=\frac{F(d)(L-s)}{EI_2}\iv_1\,;
+\end{displaymath}
+\item Consequently:
+\begin{displaymath}
+\begin{split}
+\uv_{G\Sigma}'(s) &= \frac{F(d)}{EI_2}\left(L-\frac{s}{2}\right)s\,\iv_1+\uv_{G\Sigma}'(0) \\
+&= \frac{F(d)}{EI_2}\left(L-\frac{s}{2}\right)s\,\iv_1
+\end{split}
+\end{displaymath}
+since $\drot_\Sigma(0)=\iv_3\times\uv_{G\Sigma}'(0)=\bzero$ (the beam "is clamped at $s=0$ on a fixed, perfectly rigid support").
+\end{itemize}
+\end{exampleblock}
+
+\onslide<3|handout:3>
+\vskip-20pt
+\begin{exampleblock}{Question \#4: Transverse displacement $\uv_{G\Sigma}$?}
+\begin{itemize}
+\item Constitutive equation for the transverse displacement with Euler-Bernoulli's assumption:
+\begin{displaymath}
+\uv_{G\Sigma}''(s)=\frac{F(d)(L-s)}{EI_2}\,\iv_1\,;
+\end{displaymath}
+\item Consequently:
+\begin{displaymath}
+\begin{split}
+\uv_{G\Sigma}(s) &= \frac{F(d)}{2EI_2}\left(L-\frac{s}{3}\right)s^2\,\iv_1+\uv_{G\Sigma}(0) \\
+&= \frac{F(d)}{2EI_2}\left(L-\frac{s}{3}\right)s^2\,\iv_1
+\end{split}
+\end{displaymath}
+since $\uv_{G\Sigma}(0)=\bzero$ (the beam "is clamped at $s=0$ on a fixed, perfectly rigid support").
+\end{itemize}
+\end{exampleblock}
+
+\end{overprint}
+
+\end{frame}
+
+\begin{frame}{Atomic force microscope}{Solution}
+
+\vskip-55pt
+\begin{exampleblock}{Question \#5: Bending stiffness $k$?}
+\begin{itemize}
+\item Bending stiffness $k$:
+\begin{displaymath}
+\begin{split}
+k &=\frac{\abs{F(d)}}{\norm{\uv_{G\Sigma}(L)}} \\
+&=\frac{3EI_2}{L^3}\,.
+\end{split}
+\end{displaymath}
+\end{itemize}
+\end{exampleblock}
+
+\end{frame}
+
+\begin{frame}{Atomic force microscope}{Solution}
+
+\begin{overprint}
+
+\onslide<1|handout:1>
+\vskip-20pt
+\begin{exampleblock}{Question \#6: Tip end rotation $\drot_\Sigma(L)$?}
+\begin{itemize}
+\item From Euler-Bernoulli's assumption:
+\begin{displaymath}
+\begin{split}
+\drot_\Sigma(s) &=\iv_3\times\uv_{G\Sigma}'(s) \\
+&=\frac{F(d)}{EI_2}\left(L-\frac{s}{2}\right)s\,\iv_3\times\iv_1\,;
+\end{split}
+\end{displaymath}
+\end{itemize}
+\end{exampleblock}
+
+\onslide<2|handout:2>
+\vskip-20pt
+\begin{exampleblock}{Question \#6: Tip end rotation $\drot_\Sigma(L)$?}
+\begin{itemize}
+\item From Euler-Bernoulli's assumption:
+\begin{displaymath}
+\begin{split}
+\drot_\Sigma(s) &=\iv_3\times\uv_{G\Sigma}'(s) \\
+&=\frac{F(d)}{EI_2}\left(L-\frac{s}{2}\right)s\,\iv_2\,;
+\end{split}
+\end{displaymath}
+\item Consequently:
+\begin{displaymath}
+\drot_\Sigma(L)=\frac{F(d)L^2}{2EI_2}\,\iv_2\,;
+\end{displaymath}
+\item The largest rotation is at the tip end, that is why it is measured for better precision.
+\end{itemize}
+\end{exampleblock}
+
+\end{overprint}
+
+\end{frame}
+
+\begin{frame}{Atomic force microscope}{Solution}
+
+\begin{overprint}
+
+\onslide<1|handout:1>
+\vskip-20pt
+\begin{exampleblock}{Question \#7: Tip end rotation with distributed tip load?}
+\begin{itemize}
+\item Local balance of actions at any $s\in]0,L[$:
+\begin{displaymath}
+\begin{split}
+\Fres'(s)+\fv_l(s) &=\bzero\,, \\
+\Mres'(s)+\iv_3\times\Fres(s)+\cv_l(s) &=\bzero\,,
+\end{split}
+\end{displaymath}
+where $\cv_l(s)=\bzero$ and:
+\begin{displaymath}
+\fv_l(s)=\left\{\begin{array}{cl}
+\frac{F(d)}{a}\iv_1 & \quad\text{if}\;\;s\in]L-a,L[\,, \\
+\bzero & \quad\text{if}\;\;s\in]0,L-a[\,.
+\end{array}\right.
+\end{displaymath}
+\item Strategy: (i) recompute $\Fres$; (ii) recompute $\Mres$; (iii) deduce $\drot_\Sigma$.
+\end{itemize}
+\end{exampleblock}
+
+\onslide<2|handout:2>
+\vskip-20pt
+\begin{exampleblock}{Question \#7: Tip end rotation with distributed tip load?}
+\begin{itemize}
+\item (i) Recompute $\Fres$:
+\begin{displaymath}
+\Fres(s)=\left\{\begin{array}{cl}
+\frac{F(d)}{a}(L-s)\iv_1 & \quad\text{if}\;\;s\in]L-a,L[\,, \\
+F(d)\iv_1 & \quad\text{if}\;\;s\in]0,L-a[\,,
+\end{array}\right.
+\end{displaymath}
+since $\Fres(L)=\Fres_L=\bzero$.
+\end{itemize}
+\end{exampleblock}
+
+\onslide<3|handout:3>
+\vskip-20pt
+\begin{exampleblock}{Question \#7: Tip end rotation with distributed tip load?}
+\begin{itemize}
+\item (i) Recompute $\Fres$:
+\begin{displaymath}
+\Fres(s)=\left\{\begin{array}{cl}
+\frac{F(d)}{a}(L-s)\iv_1 & \quad\text{if}\;\;s\in]L-a,L[\,, \\
+F(d)\iv_1 & \quad\text{if}\;\;s\in]0,L-a[\,,
+\end{array}\right.
+\end{displaymath}
+since $\Fres(L)=\Fres_L=\bzero$.
+\item (ii) Recompute $\Mres$:
+\begin{displaymath}
+\Mres(s)=\left\{\begin{array}{cl}
+\frac{F(d)}{2a}(L-s)^2\,\iv_2 & \quad\text{if}\;\;s\in]L-a,L[\,, \\
+F(d)\left(L-s-\frac{a}{2}\right)\iv_2 & \quad\text{if}\;\;s\in]0,L-a[\,,
+\end{array}\right.
+\end{displaymath}
+since $\Mres(L)=\Mres_L=\bzero$.
+\end{itemize}
+\end{exampleblock}
+
+\onslide<4|handout:4>
+\vskip-20pt
+\begin{exampleblock}{Question \#7: Tip end rotation with distributed tip load?}
+\begin{itemize}
+\item (iii) Deduce $\drot_\Sigma$:
+\begin{displaymath}
+\begin{split}
+\Mres_\Sigma(s) &= E\Mstatic(\drot_\Sigma'(s)) \\
+\imply\quad \drot_\Sigma'(s) &=\frac{\Mres_\Sigma(s)}{EI_2}
+\end{split}
+\end{displaymath}
+since $\Mres_\Sigma(s)//\iv_2$.
+\item Consequently:
+\begin{displaymath}
+\drot_\Sigma'(s)=\left\{\begin{array}{cl}
+\frac{F(d)}{2EI_2a}(L-s)^2\,\iv_2 & \quad\text{if}\;\;s\in]L-a,L[\,, \\
+\frac{F(d)}{EI_2}\left(L-s-\frac{a}{2}\right)\iv_2 & \quad\text{if}\;\;s\in]0,L-a[\,,
+\end{array}\right.
+\end{displaymath}
+with $\drot_\Sigma(0)=\bzero$ (fixed support) and $\jump{\drot_\Sigma(L-a)}=\bzero$ (continuity).
+\end{itemize}
+\end{exampleblock}
+
+\onslide<5|handout:5>
+\vskip-20pt
+\begin{exampleblock}{Question \#7: Tip end rotation with distributed tip load?}
+\begin{itemize}
+\item (iii) Deduce $\drot_\Sigma$:
+\begin{displaymath}
+\drot_\Sigma(s)=\left\{\begin{array}{cl}
+\;\scriptstyle \frac{F(d)}{6EI_2}\left[\frac{(s-L)^3}{a}+a^2+3L(L-a)\right]\,\iv_2 & \scriptstyle \quad\text{if}\;\;s\in]L-a,L[\,, \\
+\;\scriptstyle \frac{F(d)}{EI_2}\left(L-\frac{s}{2}-\frac{a}{2}\right)s\,\iv_2 & \scriptstyle \quad\text{if}\;\;s\in]0,L-a[\,.
+\end{array}\right.
+\end{displaymath}
+\item Finally:
+\begin{displaymath}
+\drot_\Sigma(L)= \frac{F(d)L^2}{2EI_2}\left(1-\frac{a}{L}+\frac{a^2}{3L^2}\right)\,\iv_2
+\end{displaymath}
+to be compared with the initial result $\drot_\Sigma(L)=\frac{F(d)L^2}{2EI_2}$.
+\end{itemize}
+\end{exampleblock}
+
+\end{overprint}
+
+\end{frame}
+
+\begin{frame}{Atomic force microscope}{Solution}
+
+\begin{overprint}
+
+\onslide<1|handout:1>
+\vskip-30pt
+\begin{exampleblock}{Question \#8: Tip end rotation with self-weight?}
+\begin{itemize}
+\item Local balance of actions at any $s\in]0,L[$:
+\begin{displaymath}
+\begin{split}
+\Fres'(s)+\fv_l(s) &=\bzero\,, \\
+\Mres'(s)+\iv_3\times\Fres(s)+\cv_l(s) &=\bzero\,,
+\end{split}
+\end{displaymath}
+where $\fv_l=-\roi gS\iv_1$ and $\cv_l(s)=\bzero$.
+\item Strategy: (i) recompute $\Fres$; (ii) recompute $\Mres$; (iii) deduce $\drot_\Sigma$.
+\end{itemize}
+\end{exampleblock}
+
+\onslide<2|handout:2>
+\vskip-30pt
+\begin{exampleblock}{Question \#8: Tip end rotation with self-weight?}
+\begin{itemize}
+\item (i) Recompute $\Fres$:
+\begin{displaymath}
+\begin{split}
+\Fres'(s) &=\roi g S\iv_1 \\
+\Fres(s) & =\roi g S(s-L)\iv_1\,,\quad s\in]0,L[
+\end{split}
+\end{displaymath}
+since $\Fres(L)=\Fres_L=\bzero$.
+\end{itemize}
+\end{exampleblock}
+
+\onslide<3|handout:3>
+\vskip-30pt
+\begin{exampleblock}{Question \#8: Tip end rotation with self-weight?}
+\begin{itemize}
+\item (i) Recompute $\Fres$:
+\begin{displaymath}
+\begin{split}
+\Fres'(s) &=\roi g S\iv_1 \\
+\Fres(s) & =\roi g S(s-L)\iv_1\,,\quad s\in]0,L[
+\end{split}
+\end{displaymath}
+since $\Fres(L)=\Fres_L=\bzero$.
+\item (ii) Recompute $\Mres$:
+\begin{displaymath}
+\begin{split}
+\Mres'(s) &=-\roi g S(s-L)\iv_3\times\iv_1 \\
+\Mres(s) & =-\frac{\roi g S}{2}(s-L)^2\,\iv_2\,,\quad s\in]0,L[
+\end{split}
+\end{displaymath}
+since $\Mres(L)=\Mres_L=\bzero$.
+\end{itemize}
+\end{exampleblock}
+
+\onslide<4|handout:4>
+\vskip-20pt
+\begin{exampleblock}{Question \#8: Tip end rotation with self-weight?}
+\begin{itemize}
+\item (iii) Deduce $\drot_\Sigma$:
+\begin{displaymath}
+\begin{split}
+\Mres_\Sigma(s) &= E\Mstatic(\drot_\Sigma'(s)) \\
+\imply\quad \drot_\Sigma'(s) &=\frac{\Mres_\Sigma(s)}{EI_2}\,.
+\end{split}
+\end{displaymath}
+\item Consequently:
+\begin{displaymath}
+\begin{split}
+\drot_\Sigma'(s) &=-\frac{\roi g S}{2EI_2}(s-L)^2\,\iv_2 \\
+\drot_\Sigma(s) &=-\frac{\roi g S}{6EI_2}[(s-L)^3+L^3]\,\iv_2\,,\quad s\in]0,L[\,,
+\end{split}
+\end{displaymath}
+since $\drot_\Sigma(0)=\bzero$ (fixed support).
+\end{itemize}
+\end{exampleblock}
+
+\onslide<5|handout:5>
+\vskip-20pt
+\begin{exampleblock}{Question \#8: Tip end rotation with self-weight?}
+\begin{itemize}
+\item (iii) Deduce $\drot_\Sigma$:
+\begin{displaymath}
+\drot_\Sigma(s) =-\frac{\roi g S}{6EI_2}[(s-L)^3+L^3]\,\iv_2\,,\quad s\in]0,L[\,.
+\end{displaymath}
+\item Finally:
+\begin{displaymath}
+\drot_\Sigma(L) =-\frac{\roi g SL^3}{6EI_2}\,\iv_2\,.
+\end{displaymath}
+\item This rotation is much small than the one induced by the tip end load, so that the influence of the self-weight can be neglected.
+\end{itemize}
+\end{exampleblock}
+
+\end{overprint}
+
+\end{frame}
+
+\begin{frame}{Atomic force microscope}{Solution}
+
+\vskip-30pt
+\begin{exampleblock}{Question \#9: Effective rigidity $k_\text{eff}$?}
+\begin{itemize}
+\item The tip end load is expressed in two ways:
+\begin{displaymath}
+ F(d)=k\uj_\text{microlever}=-k'\uj_\text{sample}\,,
+\end{displaymath}
+and ($d=\uj_\text{microlever}-\uj_\text{sample}$):
+\begin{displaymath}
+ F(d)=k_\text{eff}(\uj_\text{microlever}-\uj_\text{sample})\,;
+\end{displaymath}
+\item Thus:
+\begin{displaymath}
+k_\text{eff}=\frac{kk'}{k+k'}\,.
+\end{displaymath}
+\end{itemize}
+\end{exampleblock}
+
+\end{frame}
+
+\end{document}
+
