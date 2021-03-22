@@ -1,0 +1,713 @@
+% MG3 TD #3: Design of a gravity dam
+% V1.0 January 2021
+% $Header: /cvsroot/latex-beamer/latex-beamer/solutions/generic-talks/generic-ornate-15min-45min.en.tex,v 1.5 2007/01/28 20:48:23 tantau Exp $
+\def\webDOI{http://dx.doi.org}
+\def\Folder{/Users/ericsavin/Documents/Cours/SG3-MMC/SLIDES_TD/}
+\def\Year{\Folder/2020-2021}
+\def\Sections{\Year/SECTIONS}
+\def\figs{\Folder/FIGS}
+%\def\figs{/Users/ericsavin/Documents//Cours/DynSto/Figs}
+%\def\figs{/Users/ericsavin/Documents/Cours/SG3-MMC/SLIDES_TD/FIGS}
+\def\figdynsto{/Users/ericsavin/Documents//Figures/DYNSTO}
+\def\symb{/Users/ericsavin/Documents/Latex/SYMBOL}
+\def\fonts{/Users/ericsavin/Documents/Latex/FONTS}
+\def\logos{/Users/ericsavin/Documents/Latex/LOGOS}
+\def\Onera{ONERA}
+\def\ECP{CentraleSup\'elec}
+
+
+\documentclass{beamer}
+
+% This file is a solution template for:
+
+% - Giving a talk on some subject.
+% - The talk is between 15min and 45min long.
+% - Style is ornate.
+
+
+
+% Copyright 2004 by Till Tantau <tantau@users.sourceforge.net>.
+%
+% In principle, this file can be redistributed and/or modified under
+% the terms of the GNU Public License, version 2.
+%
+% However, this file is supposed to be a template to be modified
+% for your own needs. For this reason, if you use this file as a
+% template and not specifically distribute it as part of a another
+% package/program, I grant the extra permission to freely copy and
+% modify this file as you see fit and even to delete this copyright
+% notice. 
+
+
+\mode<presentation>
+{
+  \usetheme{Berkeley}
+  % or ...
+
+  \setbeamercovered{transparent}
+  % or whatever (possibly just delete it)
+}
+
+
+\usepackage[english]{babel}
+% or whatever
+
+\usepackage[latin1]{inputenc}
+% or whatever
+
+%\usepackage{mathtime}
+\usefonttheme{serif}
+%\usefonttheme{professionalfonts}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\usepackage{amsmath}
+\usepackage{multimedia}
+\usepackage{mathrsfs}
+\usepackage{mathabx}
+\usepackage{color}
+\usepackage{pstricks}
+\usepackage{graphicx}
+%\usepackage[pdftex, pdfborderstyle={/S/U/W 1}]{hyperref}
+\usepackage{hyperref}
+\usepackage{bbm}
+\usepackage{cancel}
+\usepackage[Symbol]{upgreek}
+%\usepackage{mathbbol}
+%\DeclareSymbolFontAlphabet{\amsmathbb}{AMSb}
+%\usepackage[bbgreekl]{mathbbol}
+%\usepackage[mtpbbi]{mtpro2}
+
+%\usepackage[svgnames]{xcolor}
+
+%\input{\fonts/math0}
+%\input{\symb/structac} % Notations E. Savin
+%\input{\symb/logos}
+
+\newcommand{\ci}{\mathrm{i}}
+\newcommand{\trace}{\operatorname{Tr}}
+\newcommand{\Nset}{\mathbb{N}}
+\newcommand{\Zset}{\mathbb{Z}}
+\newcommand{\Rset}{\mathbb{R}}
+\newcommand{\Cset}{\mathbb{C}}
+\newcommand{\Sset}{\mathbb{S}}
+\newcommand{\Mset}{\mathbb{M}}
+\newcommand{\PhaseSpace}{\Omega}
+\newcommand{\ContSet}{{\mathcal C}}
+\newcommand{\id}{d}
+\newcommand{\iD}{\mathrm{D}}
+\newcommand{\iexp}{\mathrm{e}}
+\newcommand{\demi}{\frac{1}{2}}
+\newcommand{\imply}{\Rightarrow}
+
+% Algebra
+\newcommand{\itr}{{\sf T}}
+\newcommand{\Id}{{\boldsymbol I}}
+\newcommand{\IId}{\mathbb{I}}
+\newcommand{\aj}{a}
+\newcommand{\bj}{b}
+\newcommand{\cj}{c}
+\renewcommand{\dj}{d}
+\newcommand{\av}{{\boldsymbol\aj}}
+\newcommand{\bv}{{\boldsymbol\bj}}
+\newcommand{\cv}{{\boldsymbol\cj}}
+\newcommand{\dv}{{\boldsymbol\dj}}
+\newcommand{\uj}{u}
+\newcommand{\vj}{v}
+\newcommand{\xj}{x}
+\newcommand{\yj}{y}
+\newcommand{\zj}{z}
+\newcommand{\uv}{{\boldsymbol\uj}}
+\newcommand{\vv}{{\boldsymbol\vj}}
+\newcommand{\xv}{{\boldsymbol\xj}}
+\newcommand{\yv}{{\boldsymbol\yj}}
+\newcommand{\zv}{{\boldsymbol\zj}}
+\newcommand{\Aj}{A}
+\newcommand{\Bj}{B}
+\newcommand{\Av}{{\boldsymbol\Aj}}
+\newcommand{\Bv}{{\boldsymbol\Bj}}
+\newcommand{\Zgv}{{\boldsymbol Z}}
+
+% Analysis
+\newcommand{\grad}{{\boldsymbol\nabla}}
+\newcommand{\gradx}{{\grad_\xv}}
+\newcommand{\Grad}{{\mathbb D}}
+\newcommand{\Gradx}{{\Grad_\xv}}
+\renewcommand{\div}{\mathrm{div}}
+\newcommand{\divx}{{\div_\xv}}
+\newcommand{\Div}{\mathbf{Div}}
+\newcommand{\Divx}{{\Div_\xv}}
+
+% Kinematics
+\newcommand{\ej}{e}
+\renewcommand{\ij}{i}
+\newcommand{\pj}{p}
+\newcommand{\ev}{{\boldsymbol\ej}}
+\newcommand{\iv}{{\boldsymbol\ij}}
+\newcommand{\pv}{{\boldsymbol\pj}}
+\newcommand{\posij}{f}
+\newcommand{\posiv}{{\boldsymbol\posij}}
+\newcommand{\iposiv}{{\boldsymbol g}}
+\newcommand{\Fp}{{\mathbb F}}
+\newcommand{\GreenLj}{E}
+\newcommand{\GreenL}{{\mathbb\GreenLj}}
+\newcommand{\medium}{\Omega}
+\newcommand{\strainj}{\varepsilon}
+\newcommand*{\strain}{\mbox{$\hspace{0.2em}\rotatebox[x=0pt,y=0.2pt]{90}{\rule{0.02\linewidth}{0.4pt}}\hspace{-0.23em}\upvarepsilon$}} 
+
+% Dynamics
+\newcommand{\fj}{f}
+\newcommand{\Fj}{F}
+\newcommand{\mj}{m}
+\newcommand{\nj}{n}
+\newcommand{\Tj}{T}
+\newcommand{\fv}{{\boldsymbol\fj}}
+\newcommand{\Fv}{{\boldsymbol\Fj}}
+\newcommand{\mv}{{\boldsymbol\mj}}
+\newcommand{\nv}{{\boldsymbol\nj}}
+\newcommand{\Tv}{{\boldsymbol\Tj}}
+\newcommand{\roi}{\varrho}
+\newcommand*{\stressj}{\sigma}
+\newcommand*{\tressj}{\tau}
+\newcommand{\stress}{\mbox{$\hspace{0.3em}\rotatebox[x=0pt,y=0.2pt]{90}{\rule{0.017\linewidth}{0.4pt}}\hspace{-0.25em}\upsigma$}}
+\newcommand*{\tress}{{\boldsymbol\tressj}}
+\newcommand{\acj}{a}
+\newcommand{\acv}{{\boldsymbol\acj}}
+
+%\newcommand{\Zg}{{\bf\zgj}}
+%\newcommand{\xigj}{\xi}
+%\newcommand{\xig}{{\boldsymbol\xigj}}
+\newcommand{\kgj}{k}
+%\newcommand{\kgh}{\kgj_\ygj}
+%\newcommand{\kg}{{\bf\kgj}}
+\newcommand{\Kg}{{\bf K}}
+%\newcommand{\qg}{{\boldsymbol q}}
+%\newcommand{\pg}{{\boldsymbol p}}
+\newcommand{\hkg}{{\hat \kg}}
+\newcommand{\hpg}{\hat{\pg}}
+%\newcommand{\vg}{{\boldsymbol v}}
+\newcommand{\sg}{{\boldsymbol s}}
+%\newcommand{\stress}{\mathbb{\sigma}}
+\newcommand{\tenselas}{{\rm {\large C}}}
+\newcommand{\speci}{{\mathrm w}}
+\newcommand{\specij}{{\mathrm W}}
+\newcommand{\speciv}{{\bf \specij}}
+%\newcommand{\cjg}[1]{\overline{#1}}
+\newcommand{\eigv}{{\bf b}}
+\newcommand{\eigw}{{\bf c}}
+\newcommand{\eigl}{\lambda}
+\newcommand{\jeig}{\alpha}
+\newcommand{\keig}{\beta}
+\newcommand{\cel}{c}
+\newcommand{\bcel}{{\bf\cel}}
+\newcommand{\deng}{{\mathcal E}}
+\newcommand{\flowj}{\pi}
+\newcommand{\flow}{\boldsymbol\flowj}
+\newcommand{\Flowj}{\Pi}
+\newcommand{\Flow}{\boldsymbol\Flowj}
+\newcommand{\fluxinj}{g}
+\newcommand{\fluxin}{{\bf\fluxinj}}
+\newcommand{\dscat}{\sigma}
+\newcommand{\tdscat}{\Sigma}
+\newcommand{\collop}{{\mathcal Q}}
+\newcommand{\epsd}{\delta}
+\newcommand{\rscat}{\rho}
+\newcommand{\tscat}{\tau}
+\newcommand{\Rscat}{\mathcal{R}}
+\newcommand{\Tscat}{\mathcal{T}}
+\newcommand{\lscat}{\ell}
+%\newcommand{\floss}{\eta}
+\newcommand{\mdiff}{{\bf D}}
+%\newcommand{\demi}{\frac{1}{2}}
+\newcommand{\domain}{{\mathcal O}}
+\newcommand{\bdomain}{{\mathcal D}}
+\newcommand{\interface}{\Gamma}
+\newcommand{\sinterface}{\gamma_D}
+%\newcommand{\normal}{\hat{\bf n}}
+\newcommand{\bnabla}{\boldsymbol\nabla}
+%\newcommand{\esp}[1]{\mathbb{E}\{\smash{#1}\}}
+\newcommand{\mean}[1]{\underline{#1}}
+%\newcommand{\BB}{\mathbb{B}}
+%\newcommand{\II}{{\boldsymbol I}}
+%\newcommand{\TA}{\boldsymbol{\Gamma}}
+\newcommand{\Mdisp}{{\mathbf H}}
+\newcommand{\Hamil}{{\mathcal H}}
+\newcommand{\bzero}{{\bf 0}}
+
+\newcommand{\mass}{M}
+\newcommand{\damp}{D}
+\newcommand{\stif}{K}
+\newcommand{\dsp}{S}
+\newcommand{\dof}{q}
+\newcommand{\pof}{p}
+%\newcommand{\MM}{{\boldsymbol\mass}}
+\newcommand{\MD}{{\boldsymbol\damp}}
+\newcommand{\MK}{{\boldsymbol\stif}}
+\newcommand{\MS}{{\boldsymbol\dsp}}
+\newcommand{\Cov}{{\boldsymbol C}}
+\newcommand{\dofg}{{\boldsymbol\dof}}
+\newcommand{\pofg}{{\boldsymbol\pof}}
+\newcommand{\driftj}{b}
+\newcommand{\drifts}{{\boldsymbol \driftj}}
+\newcommand{\drift}{{\underline\drifts}}
+\newcommand{\scatj}{a}
+\newcommand{\scat}{{\boldsymbol\scatj}}
+\newcommand{\diff}{{\boldsymbol\sigma}}
+\newcommand{\load}{F}
+\newcommand{\loadg}{{\boldsymbol\load}}
+\newcommand{\pdf}{\pi}
+\newcommand{\tpdf}{\pdf_t}
+\newcommand{\fg}{{\boldsymbol f}}
+%\newcommand{\Ugj}{U}
+\newcommand{\Vgj}{V}
+\newcommand{\Xgj}{X}
+\newcommand{\Ygj}{Y}
+%\newcommand{\Ug}{{\boldsymbol\Ugj}}
+\newcommand{\Vg}{{\boldsymbol\Vgj}}
+%\newcommand{\Qg}{{\boldsymbol Q}}
+\newcommand{\Pg}{{\boldsymbol P}}
+\newcommand{\Xg}{{\boldsymbol\Xgj}}
+\newcommand{\Yg}{{\boldsymbol\Ygj}}
+\newcommand{\flux}{{\boldsymbol J}}
+\newcommand{\wiener}{W}
+\newcommand{\whitenoise}{B}
+\newcommand{\Wiener}{{\boldsymbol\wiener}}
+\newcommand{\White}{{\boldsymbol\white}}
+\newcommand{\paraj}{\nu}
+\newcommand{\parag}{{\boldsymbol\paraj}}
+\newcommand{\parae}{\hat{\parag}}
+\newcommand{\erroj}{\epsilon}
+\newcommand{\error}{{\boldsymbol\erroj}}
+\newcommand{\biaj}{b}
+\newcommand{\bias}{{\boldsymbol\biaj}}
+%\newcommand{\disp}{{\boldsymbol V}}
+\newcommand{\Fisher}{{\mathcal I}}
+\newcommand{\likelihood}{{\mathcal L}}
+
+\newcommand{\heps}{\varepsilon}
+%\newcommand{\roi}{\varrho}
+\newcommand{\jump}[1]{\llbracket{#1}\rrbracket}
+\newcommand{\scal}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\norm}[1]{\left\|#1\right\|}
+\newcommand{\abs}[1]{\left|#1\right|}
+%\newcommand{\po}{\operatorname{o}}
+\newcommand{\FFT}[1]{\widehat{#1}}
+\newcommand{\indic}[1]{{\mathbf 1}_{#1}}
+\newcommand{\impulse}{{\mathbbm h}}
+\newcommand{\frf}{\FFT{\impulse}}
+
+%\renewcommand{\Moy}[1]{{\boldsymbol\mu}_{#1}}
+%\renewcommand{\Rcor}[1]{{\boldsymbol R}_{#1}}
+%\renewcommand{\Mw}[1]{{\boldsymbol M}_{#1}}
+%\renewcommand{\Sw}[1]{{\boldsymbol S}_{#1}}
+%\renewcommand{\esp}[1]{{\mathbb E}\{#1\}}
+
+\newcommand{\emphb}[1]{\textcolor{blue}{#1}}
+\newcommand{\mycite}[1]{\textcolor{red}{#1}}
+\newcommand{\mycitb}[1]{\textcolor{red}{[{\it #1}]}}
+
+\newcommand{\PDFU}{{\mathcal U}}
+\newcommand{\PDFN}{{\mathcal N}}
+\newcommand{\TK}{{\boldsymbol\Pi}}
+\newcommand{\TKij}{\pi}
+\newcommand{\TKi}{{\boldsymbol\pi}}
+\newcommand{\SMi}{\TKij^*}
+\newcommand{\SM}{\TKi^*}
+\newcommand{\lagmuli}{\lambda}
+\newcommand{\lagmul}{{\boldsymbol\lagmuli}}
+\newcommand{\constraint}{{\boldsymbol C}}
+\newcommand{\mconstraint}{\mean{\constraint}}
+
+\newcommand{\mybox}[1]{\fbox{\begin{minipage}{0.93\textwidth}{#1}\end{minipage}}}
+\newcommand{\defcolor}[1]{\textcolor{blue}{#1}}
+
+%\definecolor{rose}{LightPink}%{rgb}{251,204,231}
+
+\newtheorem{mydef}{Definition}
+\newtheorem{mythe}{Theorem}
+\newtheorem{myprop}{Proposition}
+
+% Or whatever. Note that the encoding and the font should match. If T1
+% does not look nice, try deleting the line with the fontenc.
+
+\title[1EL5000/S3]
+{Design of a gravity dam}
+
+\subtitle{1EL5000--Continuum Mechanics -- Tutorial Class \#3} % (optional)
+
+\author[\'E. Savin] % (optional, use only with lots of authors)
+{\'E. Savin\inst{1,2}\\ \scriptsize{\texttt{eric.savin@\{centralesupelec,onera\}.fr}}}%\inst{1} }
+% - Use the \inst{?} command only if the authors have different
+%   affiliation.
+
+\institute[Onera] % (optional, but mostly needed)
+{\inst{1}{Information Processing and Systems Dept.\\\Onera, France}
+\and
+ \inst{2}{Mechanical and Civil Engineering Dept.\\\ECP, France}}%
+%  Department of Theoretical Philosophy\\
+%  University of Elsewhere}
+% - Use the \inst command only if there are several affiliations.
+% - Keep it simple, no one is interested in your street address.
+
+%\date[Short Occasion] % (optional)
+\date{\today}
+
+\subject{Design of a gravity dam}
+% This is only inserted into the PDF information catalog. Can be left
+% out. 
+
+
+
+% If you have a file called "university-logo-filename.xxx", where xxx
+% is a graphic format that can be processed by latex or pdflatex,
+% resp., then you can add a logo as follows:
+
+% \pgfdeclareimage[height=0.5cm]{university-logo}{university-logo-filename}
+% \logo{\pgfuseimage{university-logo}}
+
+
+
+% Delete this, if you do not want the table of contents to pop up at
+% the beginning of each subsection:
+\AtBeginSection[]
+%\AtBeginSubsection[]
+{
+  \begin{frame}<beamer>{Outline}
+    \tableofcontents[currentsection]%,currentsubsection]
+  \end{frame}
+}
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+
+%\beamerdefaultoverlayspecification{<+->}
+
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+  \tableofcontents
+  % You might wish to add the option [pausesections]
+\end{frame}
+
+
+% Since this a solution template for a generic talk, very little can
+% be said about how it should be structured. However, the talk length
+% of between 15min and 45min and the theme suggest that you stick to
+% the following rules:  
+
+% - Exactly two or three sections (other than the summary).
+% - At *most* three subsections per section.
+% - Talk about 30s to 2min per frame. So there should be between about
+%   15 and 30 frames, all told.
+
+\section{Some algebra}
+\input{\Sections/Algebra}
+
+
+\section{Strength criteria}
+\input{\Sections/Criteria}
+
+
+\begin{frame}{To go further...}{}
+
+\begin{itemize}
+\item 2EL1830 Non-linear behavior of materials
+\item ST7-81-CS Conception en fabrication additive
+\end{itemize}
+
+\end{frame}
+
+\section{3.1 Design of a gravity dam}
+
+\begin{frame}{Design of a gravity dam}{Setup}
+
+\begin{columns}[t]
+\column{.5\textwidth}
+\centering\includegraphics[scale=.35]{\figs/ch3-Dam}
+\column{.5\textwidth}
+\vskip-100pt
+\centering\includegraphics[scale=.35]{\figs/ch3-WillowCreek}
+\vskip-20pt{\hspace{5.2truecm}\mbox{\tiny{Willow Creek dam (Oregon, USA)}}}
+\end{columns}
+\begin{displaymath}
+\stress=b_1\xj_2\iv_1\otimes\iv_1 + (a_2\xj_1+b_2\xj_2)\iv_2\otimes\iv_2-2(\roi_b g+b_2)\xj_1\iv_1\otimes_s\iv_2\,,
+\end{displaymath}
+with:
+\begin{displaymath}
+b_1=-\roi_e g\,,\quad a_2=\frac{\roi_b g}{\alpha}-2\frac{\roi_e g}{\alpha^3}\,,\quad b_2=-\roi_b g+\frac{\roi_e g}{\alpha^2}\,.
+\end{displaymath}
+
+\end{frame}
+
+\begin{frame}{Design of a gravity dam}{Solution}
+
+\begin{overprint}
+
+\onslide<1|handout:1>
+\vskip-20pt
+\begin{exampleblock}{Question \#1: Local equilibrium equation?}
+\begin{itemize}
+\item The local equilibrium equation reads $\Divx\stress+\fv_v=\roi\acv$.
+\item In the present case $\fv_v=+\roi_b g\iv_2$ and $\acv=\bzero$ in static analysis.
+\end{itemize}
+\end{exampleblock}
+
+\onslide<2|handout:2>
+\vskip-20pt
+\begin{exampleblock}{Question \#1: Local equilibrium equation?}
+\begin{itemize}
+\item The local equilibrium equation reads $\Divx\stress+\fv_v=\roi\acv$.
+\item In the present case $\fv_v=+\roi_b g\iv_2$ and $\acv=\bzero$.
+\item Besides $\Divx\stress=\frac{\partial}{\partial\xj_j}(\stress\iv_j)$ and:
+\begin{displaymath}
+\begin{split}
+\frac{\partial\stress}{\partial\xj_1}&=a_2\iv_2\otimes\iv_2-2(\roi_b g+b_2)\iv_1\otimes_s\iv_2\,, \\
+\frac{\partial\stress}{\partial\xj_2} &=b_1\iv_1\otimes\iv_1+b_2\iv_2\otimes\iv_2\,, \\
+\frac{\partial\stress}{\partial\xj_3} &=\bzero\,.
+\end{split}
+\end{displaymath}
+\end{itemize}
+\end{exampleblock}
+
+\onslide<3|handout:3>
+\vskip-20pt
+\begin{exampleblock}{Question \#1: Local equilibrium equation?}
+\begin{itemize}
+\item The local equilibrium equation reads $\Divx\stress+\fv_v=\roi\acv$.
+\item In the present case $\fv_v=+\roi_b g\iv_2$ and $\acv=\bzero$.
+\item Besides $\Divx\stress=\frac{\partial}{\partial\xj_j}(\stress\iv_j)$ and:
+\begin{displaymath}
+\begin{split}
+\frac{\partial\stress}{\partial\xj_1}&=a_2\iv_2\otimes\iv_2-2(\roi_b g+b_2)\iv_1\otimes_s\iv_2\,, \\
+\frac{\partial\stress}{\partial\xj_2} &=b_1\iv_1\otimes\iv_1+b_2\iv_2\otimes\iv_2\,. \\
+\end{split}
+\end{displaymath}
+\item Hence (remind that $(\av\otimes\bv)\cv=\scal{\bv,\cv}\av$):
+\begin{displaymath}
+\Divx\stress=-(\roi_b g+b_2)\iv_2+b_2\iv_2=-\roi_b g\iv_2=-\fv_v\quad\text{QED}\,.
+\end{displaymath}
+\end{itemize}
+\end{exampleblock}
+
+\end{overprint}
+
+\end{frame}
+
+\begin{frame}{Design of a gravity dam}{Solution}
+
+\begin{overprint}
+
+\onslide<1|handout:1>
+\vskip-20pt
+\begin{exampleblock}{Question \#2: Free edge BC on downstream wall?}
+\begin{itemize}
+\item Downstream wall $\Gamma_\text{d}=\{0\leq\xj_2\leq H,\,\xj_1-\alpha\xj_2=0\}$.
+\end{itemize}
+\end{exampleblock}
+
+\onslide<2|handout:2>
+\vskip-20pt
+\begin{exampleblock}{Question \#2: Free edge BC on downstream wall?}
+\begin{itemize}
+\item Downstream wall $\Gamma_d=\{0\leq\xj_2\leq H,\,\xj_1-\alpha\xj_2=0\}$.
+\item Outward unit normal $\nv=\frac{1}{\sqrt{1+\alpha^2}}(\iv_1-\alpha\iv_2)$.
+\end{itemize}
+\end{exampleblock}
+
+\onslide<3|handout:3>
+\vskip-20pt
+\begin{exampleblock}{Question \#2: Free edge BC on downstream wall?}
+\begin{itemize}
+\item Downstream wall $\Gamma_d=\{0\leq\xj_2\leq H,\,\xj_1-\alpha\xj_2=0\}$.
+\item Outward unit normal $\nv=\frac{1}{\sqrt{1+\alpha^2}}(\iv_1-\alpha\iv_2)$.
+\item Therefore:
+\begin{displaymath}
+\begin{split}
+\stress\nv\mid_{\Gamma_d}= &\;\frac{1}{\sqrt{1+\alpha^2}}\left(b_1\xj_2\iv_1-(\roi_b g+b_2)\xj_1\iv_2\right. \\
+&\;\left. -\alpha(a_2\xj_1+b_2\xj_2)\iv_2-\alpha(\roi_b g+b_2)\xj_1\iv_1\right) \\
+= &\;\frac{\xj_2}{\sqrt{1+\alpha^2}}\left[\left(b_1-\alpha^2(\roi_b g+b_2)\right)\iv_1 \right. \\
+&\;\left. -\left(\alpha(\roi_b g+2b_2)+\alpha^2a_2\right)\iv_2\right] \\
+= &\;\frac{\xj_2}{\sqrt{1+\alpha^2}}\left[\left(-\roi_e g+\roi_e g\right)\iv_1 \right. \\
+&\;\left. -\left(\alpha\left(-\roi_b g+2\frac{\roi_e g}{\alpha^2}\right) +\alpha\roi_b g-2 \frac{\roi_e g}{\alpha}\right)\iv_2\right]\;\text{QED}\,.
+\end{split}
+\end{displaymath}
+\end{itemize}
+\end{exampleblock}
+
+\end{overprint}
+
+\end{frame}
+
+\begin{frame}{Design of a gravity dam}{Solution}
+
+\begin{overprint}
+
+\onslide<1|handout:1>
+\vskip-20pt
+\begin{exampleblock}{Question \#3: Hydrostatic pressure on upstream wall?}
+\begin{itemize}
+\item Upstream wall $\Gamma_u=\{0\leq\xj_2\leq H,\,\xj_1=0\}$.
+\end{itemize}
+\end{exampleblock}
+
+\onslide<2|handout:2>
+\vskip-20pt
+\begin{exampleblock}{Question \#3: Hydrostatic pressure on upstream wall?}
+\begin{itemize}
+\item Upstream wall $\Gamma_u=\{0\leq\xj_2\leq H,\,\xj_1=0\}$.
+\item Outward unit normal $\nv=-\iv_1$.
+\end{itemize}
+\end{exampleblock}
+
+\onslide<3|handout:3>
+\vskip-20pt
+\begin{exampleblock}{Question \#3: Hydrostatic pressure on upstream wall?}
+\begin{itemize}
+\item Upstream wall $\Gamma_u=\{0\leq\xj_2\leq H,\,\xj_1=0\}$.
+\item Outward unit normal $\nv=-\iv_1$.
+\item Hydrostatic pressure $\fv_s=+\roi_e g\xj_2\iv_1$.
+\end{itemize}
+\end{exampleblock}
+
+\onslide<4|handout:4>
+\vskip-20pt
+\begin{exampleblock}{Question \#3: Hydrostatic pressure on upstream wall?}
+\begin{itemize}
+\item Upstream wall $\Gamma_u=\{0\leq\xj_2\leq H,\,\xj_1=0\}$.
+\item Outward unit normal $\nv=-\iv_1$.
+\item Hydrostatic pressure $\fv_s=+\roi_e g\xj_2\iv_1$.
+\item But:
+\begin{displaymath}
+\begin{split}
+\stress\nv\mid_{\Gamma_u} =&\;-b_1\xj_2\iv_1+(\roi_b g+b_2)\cancel{\xj_1}\iv_2 \\
+=&\;+\roi_e g\xj_2\iv_1 \\
+=&\;\fv_s\quad\text{QED}\,.
+\end{split}
+\end{displaymath}
+\end{itemize}
+\end{exampleblock}
+
+\end{overprint}
+
+\end{frame}
+
+\begin{frame}{Design of a gravity dam}{Solution}
+
+\begin{overprint}
+
+\onslide<1|handout:1>
+\vskip-20pt
+\begin{exampleblock}{Question \#4: $H$ to withstand maximum normal stress $\stressj_r$?}
+\begin{itemize}
+\item $\max_{\norm{\nv}=1}\stressj_{\nj\nj}=\lambda_1(\stress)$.
+\end{itemize}
+\end{exampleblock}
+
+\onslide<2|handout:2>
+\vskip-20pt
+\begin{exampleblock}{Question \#4: $H$ to withstand maximum normal stress $\stressj_r$?}
+\begin{itemize}
+\item $\max_{\norm{\nv}=1}\stressj_{\nj\nj}=\lambda_1(\stress)$.
+\item But on $\Gamma_u$: $\stress=b_1\xj_2\iv_1\otimes\iv_1 + b_2\xj_2\iv_2\otimes\iv_2$.
+\end{itemize}
+\end{exampleblock}
+
+\onslide<3|handout:3>
+\vskip-20pt
+\begin{exampleblock}{Question \#4: $H$ to withstand maximum normal stress $\stressj_r$?}
+\begin{itemize}
+\item $\max_{\norm{\nv}=1}\stressj_{\nj\nj}=\lambda_1(\stress)$.
+\item But on $\Gamma_u$: $\stress=b_1\xj_2\iv_1\otimes\iv_1 + b_2\xj_2\iv_2\otimes\iv_2$.
+\item Therefore:
+\begin{displaymath}
+\begin{split}
+\lambda_1(\stress) &=\xj_2\times\max(b_1,b_2) \\
+&=g\xj_2\times\max\left(-\roi_e, -\roi_b+\frac{\roi_e}{\alpha^2}\right)\,.
+\end{split}
+\end{displaymath}
+\end{itemize}
+\end{exampleblock}
+
+\onslide<4|handout:4>
+\vskip-20pt
+\begin{exampleblock}{Question \#4: $H$ to withstand maximum normal stress $\stressj_r$?}
+\begin{itemize}
+\item $\max_{\norm{\nv}=1}\stressj_{\nj\nj}=\lambda_1(\stress)$.
+\item But on $\Gamma_u$: $\stress=b_1\xj_2\iv_1\otimes\iv_1 + b_2\xj_2\iv_2\otimes\iv_2$.
+\item Therefore:
+\begin{displaymath}
+\begin{split}
+\lambda_1(\stress) &=\xj_2\times\max(b_1,b_2) \\
+&=g\xj_2\times\max\left(-\roi_e, -\roi_b+\frac{\roi_e}{\alpha^2}\right)\,.
+\end{split}
+\end{displaymath}
+\item If $\alpha>\smash{\sqrt{\roi_e/\roi_b}}$, then $\lambda_1(\stress)<0$ and the dam is in compression; this condition is always fulfilled when $\roi_e=0$ (no water).
+\end{itemize}
+\end{exampleblock}
+
+\onslide<5|handout:5>
+\vskip-20pt
+\begin{exampleblock}{Question \#4: $H$ to withstand maximum normal stress $\stressj_r$?}
+\begin{itemize}
+\item $\max_{\norm{\nv}=1}\stressj_{\nj\nj}=\lambda_1(\stress)$.
+\item But on $\Gamma_u$: $\stress=b_1\xj_2\iv_1\otimes\iv_1 + b_2\xj_2\iv_2\otimes\iv_2$.
+\item Therefore:
+\begin{displaymath}
+\begin{split}
+\lambda_1(\stress) &=\xj_2\times\max(b_1,b_2) \\
+&=g\xj_2\times\max\left(-\roi_e, -\roi_b+\frac{\roi_e}{\alpha^2}\right)\,.
+\end{split}
+\end{displaymath}
+\item If $\alpha\leq\smash{\sqrt{\roi_e/\roi_b}}$, then $\lambda_1(\stress)=(\frac{\roi_e}{\alpha^2}-\roi_b)g\xj_2$ and $\lambda_1(\stress)=\stressj_r$ whenever $\xj_2=\frac{\alpha^2\stressj_r}{g(\roi_e-\alpha^2\roi_b)}$; therefore:
+\begin{displaymath}
+H<\frac{\alpha^2\stressj_r}{g(\roi_e-\alpha^2\roi_b)}\,.
+\end{displaymath}
+\end{itemize}
+\end{exampleblock}
+
+\end{overprint}
+
+\end{frame}
+
+\end{document}
+
+\section{3.3 Torsion of a cylindrical transmission shaft}
+
+\begin{frame}{Torsion of a cylindrical transmission shaft}{Setup}
+
+\centering\includegraphics[scale=.3]{\figs/ch3-Shaft}
+
+\begin{displaymath}
+\medium_t=\{\xv=(r,\theta,\zj);\,0\leq r< a, 0\leq\theta\leq 2\pi,0<\zj<L\}\,;
+\end{displaymath}
+\begin{displaymath}
+\stress(\xv)=2kr\iv_\theta(\theta)\otimes_s\iv_\zj\,,\quad\xv\in\medium_t\,.
+\end{displaymath}
+
+\end{frame}
+
+\begin{frame}{Torsion of a cylindrical transmission shaft}{Solution}
+
+\begin{overprint}
+
+\onslide<1|handout:1>
+\vskip-20pt
+\begin{exampleblock}{Question \#1: Local equilibrium and boundary conditions?}
+\begin{itemize}
+\item The local equilibrium equation reads $\Divx\stress+\fv_v=\roi\acv$.
+\item In the present case $\fv_v=\bzero$ ("gravity can be neglected") and $\acv=\bzero$ ("effects of inertia can be neglected").
+\end{itemize}
+\end{exampleblock}
+
+\end{overprint}
+
+\end{frame}
+
+\end{document}
+
