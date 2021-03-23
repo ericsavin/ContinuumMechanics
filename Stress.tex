@@ -1,0 +1,126 @@
+\begin{frame}{Cauchy's stress tensor}{Modeling}
+
+\begin{figure}
+\centering\includegraphics[scale=.25]{\figs/ch2-Domains}
+\end{figure}
+\begin{itemize}
+\item Modeling the actions of $V_t^*=\medium_t\setminus V_t$ on $V_t$:
+\begin{itemize}
+\item Local contact actions $\Tv$ exerted by proximal subdomains with short ranges;
+\item Virtual cutting surface $\partial V_t$ with outward unit normal $\nv(\xv)$ defining the tangent plane at $\xv$.
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Cauchy's stress tensor}{Cauchy's postulates}
+
+\begin{figure}
+\centering\includegraphics[scale=.25]{\figs/ch2-Domains}
+\end{figure}
+\begin{itemize}
+\item\emphb{Cauchy's postulate \#1}: surface traction (in N/m$^2$)
+\begin{displaymath}
+\Tv(\xv,t;\partial V_t)=\fv_{\partial V_t}(\xv,t)\,,\quad\forall\xv\in\partial V_t\,,\forall V_t\,.
+\end{displaymath}
+\item\emphb{Cauchy's postulate \#2}: the surface curvature has no influence on the traction
+\begin{displaymath}
+\Tv(\xv,t;\partial V_t)=\Tv(\xv,t;\nv(\xv))\,,\quad\forall\xv\in\partial V_t\,,\forall V_t\,.
+\end{displaymath}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Cauchy's stress tensor}{Cauchy's theorem}
+
+\begin{figure}
+\centering\includegraphics[scale=.25]{\figs/ch2-Cauchy2}
+\end{figure}
+\begin{itemize}
+\item\emphb{Cauchy's theorem}: consider elementary $V_t$ (thin cylinder, tetrahedron), then $\forall\xv\in\partial V_t$
+\begin{enumerate}
+\item Action/reaction $\Tv(\xv,t;\nv(\xv))+\Tv(\xv,t;-\nv(\xv))=\bzero$;
+\item Tetrahedron's lemma $\Tv(\xv,t;\nv(\xv))=\stress(\xv,t)\nv(\xv)$.
+\end{enumerate}
+\item Boundary conditions:
+\begin{displaymath}
+\stress(\xv,t)\nv(\xv)=\fv_S(\xv,t)\,,\quad\forall\xv\in\partial\medium_t\,.
+\end{displaymath}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Cauchy's stress tensor}{Cauchy!}
+
+\begin{columns}[t]
+\column{.4\textwidth}
+\centering\includegraphics[scale=.15]{\figs/ch2-Cauchy-portrait}
+\column{.6\textwidth}
+\vskip-100pt
+Augustin Louis Cauchy [1789-1857]
+\begin{itemize}
+\item X 1805
+\item Ing\'enieur Ponts-et-Chauss\'ees
+\item Acad\'emie des Sciences 1816
+\item Prof. Analyse et M\'ecanique \`a l'X 1815-1830
+\end{itemize}
+\end{columns}
+\href{https://mathshistory.st-andrews.ac.uk/Biographies/Cauchy/}{\tiny\texttt{https://mathshistory.st-andrews.ac.uk/Biographies/Cauchy/}}
+
+\end{frame}
+
+\begin{frame}{Equations of motion}{}
+
+\begin{overprint}
+
+\onslide<1|handout:1>
+\begin{figure}
+\centering\includegraphics[scale=.25]{\figs/ch2-Cauchy2}
+\end{figure}
+\begin{itemize}
+\item $\forall V_t\subseteq\medium_t$:
+\begin{displaymath}
+\begin{split}
+\int_{V_t}\roi\acv\id V &=\int_{V_t}\fv_v\id V + \int_{\partial V_t}\Tv\id S\,, \\
+\int_{V_t}\xv\times\roi\acv\id V &=\int_{V_t}\xv\times\fv_v\id V + \int_{\partial V_t}\xv\times\Tv\id S\,.
+\end{split}
+\end{displaymath}
+\end{itemize}
+
+\onslide<2|handout:2>
+\begin{itemize}
+\item $\forall V_t\subseteq\medium_t$, $\forall\cv\in\Rset^3$:
+\begin{displaymath}
+\begin{split}
+\int_{V_t}\scal{\roi\acv-\fv_v,\cv}\id V &=\int_{\partial V_t}\scal{\stress\nv,\cv}\id S \\
+&=\int_{\partial V_t}\scal{\nv,\stress^\itr\cv}\id S \\
+&=\int_{V_t}\div(\stress^\itr\cv)\id V\quad\;\;(\text{Stokes formula}) \\
+&\overset{\text{def}}{=}\int_{V_t}\scal{\Div\stress,\cv}\id V \\
+\int_{V_t}(\roi\acv-\fv_v)\id V &=\int_{V_t}\Div\stress\,\id V \\
+\roi\acv-\fv_v &=\Div\stress\quad\quad\quad\quad(\text{localization lemma})
+\end{split}
+\end{displaymath}
+\end{itemize}
+
+\onslide<3|handout:3>
+\begin{itemize}
+\item The equation of motion for a continuous medium $\xv\in\medium_t$:
+\begin{displaymath}
+\boxed{\roi\acv=\Divx\stress+\fv_v}\,,
+\end{displaymath}
+where $\Divx\stress\approx\frac{1}{V}\int_{\partial V}\stress\nv\id S$ as $\abs{V}\to 0$.
+\item The balance of momentum yields:
+\begin{displaymath}
+\stress^\itr=\stress\,.
+\end{displaymath}
+This is no longer the case if Cauchy's postulate \#1 does not hold (surface torques N.m/m$^2$).
+\item Boundary conditions $\xv\in\partial \medium_t$:
+\begin{displaymath}
+\stress\nv=\fv_S\,.
+\end{displaymath}
+
+\end{itemize}
+
+\end{overprint}
+
+\end{frame}

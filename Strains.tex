@@ -1,0 +1,280 @@
+\begin{frame}{Space gradient tensor}{...or the homogeneous tangent transformation}
+
+\begin{figure}
+\centering\includegraphics[scale=.25]{\figs/ch1-Strains}
+\end{figure}
+\begin{displaymath}
+\id\xj_j=\frac{\partial\posij_j}{\partial\pj_k}\id\pj_k
+\end{displaymath}
+\begin{itemize}
+\item Space gradient tensor $\Fp=\Grad_\pv\xv$:
+\begin{displaymath}
+\id\xv=\Fp\id\pv\,,\quad\id\uv=(\Fp-\Id)\id\pv
+\end{displaymath}
+\item In a Cartesian frame/curvilinear frame:
+\begin{displaymath}
+\Fp=\frac{\partial\xv}{\partial\pj_j}\otimes\iv_j=\frac{\partial\xv}{\partial\xi_j}\otimes\grad_\pv\xi_j
+\end{displaymath}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Green-Lagrange tensor}{Relative length variation}
+
+\begin{overprint}
+
+\onslide<1|handout:1>
+
+\begin{figure}
+\centering\includegraphics[scale=.25]{\figs/ch1-Strains}
+\end{figure}
+\begin{displaymath}
+\begin{split}
+\id\xv &=\Fp\id\pv \\
+\norm{\id\xv}^2 &=\scal{\Fp\id\pv,\Fp\id\pv} \\
+&=\scal{\id\pv,\Fp^\itr\Fp\id\pv} \\
+\frac{\norm{\id\xv}^2-\norm{\id\pv}^2}{\norm{\id\pv}^2} &=\scal{(\Fp^\itr\Fp-\Id)\frac{\id\pv}{\norm{\id\pv}},\frac{\id\pv}{\norm{\id\pv}}}
+\end{split}
+\end{displaymath}
+
+\onslide<2|handout:2>
+
+\begin{itemize}
+\item The Green-Lagrange tensor:
+\begin{displaymath}
+\boxed{\GreenL=\demi\left(\Fp^\itr\Fp-\Id\right)}\,.
+\end{displaymath}
+\item The dilatation tensor, or right Cauchy-Green tensor $\Cset=\Fp^\itr\Fp$.
+\item Measuring stretching of a fiber $\id\pv=\id\pj\iv_j$:
+\begin{displaymath}
+\frac{\norm{\id\xv}^2-\norm{\id\pv}^2}{\norm{\id\pv}^2}=2\scal{\GreenL\iv_j,\iv_j}
+\end{displaymath}
+\begin{displaymath}
+\left(\GreenLj_{jj}=\demi\left(\frac{\ell^2-\ell_0^2}{\ell_0^2}\right)=\frac{\Delta\ell}{\ell_0}+\demi\left(\frac{\Delta\ell}{\ell_0}\right)^2\right)
+\end{displaymath}
+\end{itemize}
+
+\end{overprint}
+
+\end{frame}
+
+\begin{frame}{Green-Lagrange tensor}{Relative angle variation}
+
+\begin{overprint}
+
+\onslide<1|handout:1>
+
+\begin{figure}
+\centering\includegraphics[scale=.25]{\figs/ch1-RotStretch}
+\end{figure}
+\begin{displaymath}
+\id\xv_1=\Fp\id\pv_1\,,\quad\id\xv_2=\Fp\id\pv_2 \\
+\end{displaymath}
+\begin{displaymath}
+\begin{split}
+\scal{\id\xv_1,\id\xv_2} &=\scal{\Fp\id\pv_1,\Fp\id\pv_2} \\
+&=\scal{\Fp^\itr\Fp\id\pv_1,\id\pv_2} \\
+\norm{\id\xv_1}\norm{\id\xv_2}\cos\theta_{t12} &=\scal{(2\GreenL+\Id)\id\pv_1,\id\pv_2}
+\end{split}
+\end{displaymath}
+
+\onslide<2|handout:2>
+
+\begin{itemize}
+\item The Green-Lagrange tensor:
+\begin{displaymath}
+\boxed{\GreenL=\demi\left(\Fp^\itr\Fp-\Id\right)}\,.
+\end{displaymath}
+\item Measuring angle between $\id\pv_1=\id\pj_1\iv_1$ and $\id\pv_2=\id\pj_2\iv_2$:
+\begin{displaymath}
+\begin{split}
+\norm{\id\xv_1}\norm{\id\xv_2}\cos\theta_{t12} &=\scal{(2\GreenL+\Id)\id\pj_1\iv_1,\id\pj_2\iv_2} \\
+&=2\id\pj_1\id\pj_2\scal{\GreenL\iv_1,\iv_2}
+\end{split}
+\end{displaymath}
+\begin{displaymath}
+\left(\GreenLj_{12}=\demi\left(\frac{\ell_1\ell_2}{\ell_{01}\ell_{02}}\right)\cos\theta_{t12}=\demi\frac{\ell_1}{\ell_{01}}\frac{\ell_2}{\ell_{02}}\sin\left(\frac{\pi}{2}-\theta_{t12}\right)\right)
+\end{displaymath}
+\end{itemize}
+\vskip-10pt
+\begin{figure}
+\centering\includegraphics[scale=.15]{\figs/ch1-Angle}
+\end{figure}
+
+\end{overprint}
+
+\end{frame}
+
+\begin{frame}{Green-Lagrange tensor}{Units and scales}
+
+\begin{itemize}
+\item Strains are dimensionless "m/m";
+\item Steel: $\norm{\GreenL}\approx10^{-3}$;
+\item Soil: $\norm{\GreenL}\approx10^{-2}$;
+\item Rubber: $\norm{\GreenL}\approx 2$;
+\item Molecules: $L\approx 1\,\text{\AA}=10^{-10}\,\text{m}$, $T\approx1\,\text{ps}=10^{-12}\,\text{s}$;
+\item Continuum mechanics: $L\gtrsim 10\,\text{nm}=10^{-8}\,\text{m}$, $T\gtrsim 1\,\text{ns}=10^{-9}\,\text{s}$.
+\end{itemize}
+
+%\begin{table}
+%\centering
+%\begin{tabular}{| c | c |}
+%\hline
+%Material & $\norm{\GreenL} \\ \hline
+%Steel & $10^{-3}$ \\ \hline
+%Soil & $10^{-2}$  \\  \hline
+%Rubber & $2$ \\ \hline
+%\end{tabular}
+%\caption{Strains are dimensionless "$m/m$"}
+%\end{table}
+
+\end{frame}
+
+\begin{frame}{Small strains}{Linearization}
+
+\begin{figure}
+\centering\includegraphics[scale=.25]{\figs/ch1-SmallStrains}
+\end{figure}
+\begin{displaymath}
+\medium_t\simeq\medium_0\quad(\xv\simeq\pv)
+\end{displaymath}
+\begin{displaymath}
+\max_{\pv,t}\norm{\uv}\ll L\,,\quad\max_{\pv,t}\norm{\Grad_\pv\uv}^2=\max_{\pv,t}\trace(\Grad_\pv\uv^\itr\Grad_\pv\uv)\ll 1
+\end{displaymath}
+\begin{displaymath}
+\begin{split}
+\xv &=\pv+\uv(\pv,t) \\
+\Fp &=\Id+\Grad_\pv\uv \\
+\GreenL &=\demi\left(\Fp^\itr\Fp-\Id\right) \\
+&=\demi\left(\Grad_\pv\uv+\Grad_\pv\uv^\itr+\cancel{\Grad_\pv\uv^\itr\Grad_\pv\uv}\right)
+\end{split}
+\end{displaymath}
+
+\end{frame}
+
+\begin{frame}{Small strains}{Linearized strain tensor}
+
+\begin{itemize}
+\item Linearized (small) strain tensor with $\xv\simeq\pv$:
+\begin{displaymath}
+\GreenL\simeq\strain=\demi\left(\Gradx\uv+\Gradx\uv^\itr\right)=\frac{\partial\uv}{\partial\xj_j}\otimes_s\ev_j\,,
+\end{displaymath}
+where $\av\otimes_s\bv=\demi(\av\otimes\bv+\bv\otimes\av)$.
+\item Small stretching and small relative rotations:
+\begin{displaymath}
+\strainj_{jj}=\scal{\strain\ev_j,\ev_j}=\frac{\Delta\ell}{\ell_0}\,,\quad\strainj_{jk}=\scal{\strain\ev_k,\ev_j}=\frac{\theta_{t12}^*}{2}\,.
+\end{displaymath}
+\item Local volume change:
+\begin{displaymath}
+\frac{\Delta V}{V_0}=\frac{\ell_{01}+\Delta\ell_1}{\ell_{01}}\frac{\ell_{02}+\Delta\ell_2}{\ell_{02}}\frac{\ell_{03}+\Delta\ell_3}{\ell_{03}}-1\approx\trace\strain\,.
+\end{displaymath}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Green-Lagrange tensor}{Example}
+
+\begin{overprint}
+
+\onslide<1|handout:1>
+\vskip-20pt
+\begin{block}{Torsion of a cylinder}
+\begin{figure}
+\centering\includegraphics[scale=.25]{\figs/ch1-torsion}
+\end{figure}
+\begin{itemize}
+\item $\pv=r\ev_r(\theta)+z\ev_z$;
+\item $\xv=r\iv_r(\theta+tr)+z\ev_z$;
+\item $\GreenL$?
+\end{itemize}
+\end{block}
+
+\onslide<2|handout:2>
+\vskip-20pt
+\begin{block}{Torsion of a cylinder}
+\begin{itemize}
+\item $\pv=r\ev_r(\theta)+z\ev_z$, $\xv=r\ev_r(\theta+tr)+z\ev_z$; $\GreenL$?
+\item First compute $\Fp$:
+{\scriptsize
+\begin{displaymath}
+\begin{split}
+\Fp &=\frac{\partial\xv}{\partial r}\otimes\ev_r+\frac{\partial\xv}{\partial\theta}\otimes\frac{\ev_\theta}{r}+\frac{\partial\xv}{\partial\zj}\otimes\ev_\zj \\
+&=(\ev_r(\theta+tr)+tr\ev_\theta(\theta+tr))\otimes\ev_r(\theta)+\ev_\theta(\theta+tr)\otimes\ev_\theta(\theta)+\ev_z\otimes\ev_z
+\end{split}
+\end{displaymath}}
+\end{itemize}
+\end{block}
+
+\onslide<3|handout:3>
+\vskip-20pt
+\begin{block}{Torsion of a cylinder}
+\begin{itemize}
+\item $\pv=r\ev_r(\theta)+z\ev_z$, $\xv=r\ev_r(\theta+tr)+z\ev_z$; $\GreenL$?
+\item First compute $\Fp$:
+{\scriptsize
+\begin{displaymath}
+\begin{split}
+\Fp &=\frac{\partial\xv}{\partial r}\otimes\ev_r+\frac{\partial\xv}{\partial\theta}\otimes\frac{\ev_\theta}{r}+\frac{\partial\xv}{\partial\zj}\otimes\ev_\zj \\
+&=(\ev_r(\theta+tr)+tr\ev_\theta(\theta+tr))\otimes\ev_r(\theta)+\ev_\theta(\theta+tr)\otimes\ev_\theta(\theta)+\ev_z\otimes\ev_z \\
+\Fp^\itr &=\ev_r(\theta)\otimes(\ev_r(\theta+tr)+tr\ev_\theta(\theta+tr))+\ev_\theta(\theta)\otimes\ev_\theta(\theta+tr)+\ev_z\otimes\ev_z
+\end{split}
+\end{displaymath}}
+\end{itemize}
+\end{block}
+
+\onslide<4|handout:4>
+\vskip-20pt
+\begin{block}{Torsion of a cylinder}
+\begin{itemize}
+\item $\pv=r\ev_r(\theta)+z\ev_z$, $\xv=r\ev_r(\theta+tr)+z\ev_z$; $\GreenL$?
+\item First compute $\Fp$:
+{\scriptsize
+\begin{displaymath}
+\begin{split}
+\Fp&=(\ev_r(\theta+tr)+tr\ev_\theta(\theta+tr))\otimes\ev_r(\theta)+\ev_\theta(\theta+tr)\otimes\ev_\theta(\theta)+\ev_z\otimes\ev_z \\
+\Fp^\itr &=\ev_r(\theta)\otimes(\ev_r(\theta+tr)+tr\ev_\theta(\theta+tr))+\ev_\theta(\theta)\otimes\ev_\theta(\theta+tr)+\ev_z\otimes\ev_z
+\end{split}
+\end{displaymath}}
+\item Then $\Fp^\itr\Fp$ (remind that $(\av\otimes\bv)(\cv\otimes\dv)=\scal{\bv,\cv}\av\otimes\dv$):
+{\scriptsize
+\begin{displaymath}
+\begin{split}
+\Fp^\itr\Fp= &\,(1+(tr)^2)\ev_r(\theta)\otimes\ev_r(\theta)+tr(\ev_r(\theta)\otimes\ev_\theta(\theta)+\ev_\theta(\theta)\otimes\ev_r(\theta)) \\
+&\,+\ev_\theta(\theta)\otimes\ev_\theta(\theta)+\ev_z\otimes\ev_z
+\end{split}
+\end{displaymath}}
+\end{itemize}
+\end{block}
+
+\onslide<5|handout:5>
+\vskip-20pt
+\begin{block}{Torsion of a cylinder}
+\begin{itemize}
+\item $\pv=r\ev_r(\theta)+z\ev_z$, $\xv=r\ev_r(\theta+tr)+z\ev_z$; $\GreenL$?
+\item First compute $\Fp$:
+{\scriptsize
+\begin{displaymath}
+\begin{split}
+\Fp&=(\ev_r(\theta+tr)+tr\ev_\theta(\theta+tr))\otimes\ev_r(\theta)+\ev_\theta(\theta+tr)\otimes\ev_\theta(\theta)+\ev_z\otimes\ev_z \\
+\Fp^\itr &=\ev_r(\theta)\otimes(\ev_r(\theta+tr)+tr\ev_\theta(\theta+tr))+\ev_\theta(\theta)\otimes\ev_\theta(\theta+tr)+\ev_z\otimes\ev_z
+\end{split}
+\end{displaymath}}
+\item Then $\Fp^\itr\Fp$ (remind that $(\av\otimes\bv)(\cv\otimes\dv)=\scal{\bv,\cv}\av\otimes\dv$):
+{\scriptsize
+\begin{displaymath}
+\begin{split}
+\Fp^\itr\Fp= &\,(1+(tr)^2)\ev_r(\theta)\otimes\ev_r(\theta)+tr(\ev_r(\theta)\otimes\ev_\theta(\theta)+\ev_\theta(\theta)\otimes\ev_r(\theta)) \\
+&\,+\ev_\theta(\theta)\otimes\ev_\theta(\theta)+\ev_z\otimes\ev_z
+\end{split}
+\end{displaymath}}
+\item Then $\GreenL=\demi(\Fp^\itr\Fp-\Id)$ ($\Id=\ev_r\otimes\ev_r+\ev_\theta\otimes\ev_\theta+\ev_z\otimes\ev_z$):
+{\scriptsize
+\begin{displaymath}
+\GreenL =\demi(tr)^2\ev_r(\theta)\otimes\ev_r(\theta)+tr\ev_r(\theta)\otimes_s\ev_\theta(\theta)\,.
+\end{displaymath}}
+\end{itemize}
+\end{block}
+
+\end{overprint}
+
+\end{frame}

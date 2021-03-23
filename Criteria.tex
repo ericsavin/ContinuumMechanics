@@ -1,0 +1,201 @@
+\begin{frame}{Recap}{}
+
+\begin{itemize}
+\item Displacement:
+\begin{displaymath}
+\uv=\xv-\pv=\fv(\pv,t)-\pv\,;
+\end{displaymath}
+\item Strains:
+\begin{displaymath}
+\GreenL=\demi\left(\Grad_\pv\uv+\Grad_\pv\uv^\itr+\Grad_\pv\uv^\itr\Grad_\pv\uv\right)\,;
+\end{displaymath}
+\item Small strains $\xv\sim\pv$, $\norm{\Grad_\pv\uv}\ll 1$:
+\begin{displaymath}
+\GreenL\simeq\strain=\demi\left(\Gradx\uv+\Gradx\uv^\itr\right)\,;
+\end{displaymath}
+\item Stresses:
+\begin{displaymath}
+\Divx\stress+\fv_v=\roi\av\,;
+\end{displaymath}
+\item What makes the difference between foams and steel???
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Stresses}{Tensile test}
+
+\begin{overprint}
+
+\onslide<1|handout:1>
+\vskip-10pt
+\begin{figure}
+\centering\includegraphics[scale=.2]{\figs/ch3-car}
+\end{figure}
+\begin{figure}
+\centering\includegraphics[scale=.2]{\figs/ch3-turbomachine}
+\end{figure}
+
+\onslide<2|handout:2>
+\begin{figure}
+\centering\includegraphics[scale=.4]{\figs/ch3-TractionTest}
+\end{figure}
+Stresses are harder to measure compared to strains or displacements which can be seen!
+
+\onslide<3|handout:3>
+\begin{columns}[t]
+\column{.5\textwidth}
+\centering\includegraphics[scale=.3]{\figs/ch3-TractionTest-start}
+\column{.5\textwidth}
+%\vskip-100pt
+\centering\includegraphics[scale=.345]{\figs/ch3-TractionTest-end}
+\end{columns}
+\centering Plot $\strainj\mapsto\stressj$ up to fracture.
+
+\end{overprint}
+
+\end{frame}
+
+\begin{frame}{Stress-strain curve}{Brittle materials}
+
+\begin{columns}[t]
+\column{.5\textwidth}
+\hspace*{-0.8truecm}\centering\includegraphics[scale=.18]{\figs/ch3-StressStrain-brittle}
+\column{.5\textwidth}
+\hspace*{-1.0truecm}\centering\includegraphics[scale=.18]{\figs/ch3-fragile}
+\end{columns}
+\vskip10pt
+\begin{itemize}
+\item At microscopic level: splitting of two atomic planes driven by normal stress component $\scal{\stress\nv,\nv}$.
+\item {\bf Examples}: cast iron, glass, stone, concrete, carbon fiber, ceramics, polymers (PMMA, polystyrene)...
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Stress-strain curve}{Ductile materials}
+
+\begin{columns}[t]
+\column{.5\textwidth}
+\hspace*{-0.3truecm}\centering\includegraphics[scale=.17]{\figs/ch3-StressStrain-ductile}
+\column{.5\textwidth}
+\centering\includegraphics[scale=.2]{\figs/ch3-ductile}
+\end{columns}
+\vskip10pt
+\begin{itemize}
+\item At microscopic level:  linear crystallographic defects (dislocations) allowing atoms to slide over each other at low stress levels.
+\item {\bf Examples}: structural steel and many alloys of other metals...
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Quantifying stresses}{Normal-shear stresses}
+
+\begin{columns}[t]
+\column{.5\textwidth}
+\centering\includegraphics[scale=.25]{\figs/ch3-sigmann}
+\column{.5\textwidth}
+\centering\includegraphics[scale=.25]{\figs/ch3-tau_sigma}
+\end{columns}
+\begin{itemize}
+\item Normal stress: $\stressj_{\nj\nj}=\scal{\stress\nv,\nv}$;
+\item Shear (tangent) force: $\tress_\Sigma=\stress\nv-\stressj_{\nj\nj}\nv$;
+\item Shear stress: $\tress_{\nj\mj}=\scal{\stress\nv,\mv}$.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Quantifying stresses}{Principal stresses}
+
+\begin{figure}
+\centering\includegraphics[scale=.2]{\figs/ch3-PrincipalStresses}
+\end{figure}
+\begin{itemize}
+\item Since $\stress$ is symmetric:
+\begin{displaymath}
+\stress{\boldsymbol\Phi}_\stressj=\lambda_\stressj{\boldsymbol\Phi}_\stressj\,.
+\end{displaymath}
+\item Characteristic polynomial ($I_1(\stress)=\trace\stress$, $I_2(\stress)=\demi((\trace\stress)^2-\trace(\stress^2))$, $I_3(\stress)=\det\stress$):
+\begin{displaymath}
+\det(\stress-\lambda_\stressj\Id)=-\lambda_\stressj^3+I_1(\stress)\lambda_\stressj^2-I_2(\stress)\lambda_\stressj+I_3(\stress)=0\,.
+\end{displaymath}
+\item Major principal stress:
+\begin{displaymath}
+\lambda_1(\stress)=\max_{\norm{\nv}=1}\scal{\stress\nv,\nv}<\stressj_r\,.
+\end{displaymath}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Quantifying stresses}{Deviatoric stress tensor}
+
+\begin{itemize}
+\item Deviatoric stress tensor:
+\begin{displaymath}
+\stress^D=\stress-\frac{\trace\stress}{3}\Id\,;
+\end{displaymath}
+\item Orthogonal expansion: $\stress=\underline{\stressj}\Id+\stress^D$, $\underline{\stressj}\Id:\stress^D=0$;
+\item Deviatoric stress invariants $J_m=\frac{1}{m}\trace(\stress^{Dm})$ such that:
+\begin{displaymath}
+\!\!\!\!\det(\stress^D-\lambda_\stressj\Id)=-\lambda_\stressj^3+J_1(\stress^D)\lambda_\stressj^2-J_2(\stress^D)\lambda_\stressj+J_3(\stress^D)=0\,;
+\end{displaymath}
+\item The deviatoric stress tensor has the same principal directions and is a state of pure shear:
+\begin{displaymath}
+\begin{split}
+J_2(\stress^D) &=0\imply\stress^D=\bzero\,, \\
+\stress^D &=\bzero\imply\tress_\Sigma=\stress\nv-\stressj_{\nj\nj}\nv=\bzero\,,\forall\nv\,.
+\end{split}
+\end{displaymath}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Quantifying stresses}{von Mises criterion}
+
+\begin{itemize}
+\item Equivalent or von Mises stress:
+\begin{displaymath}
+\begin{split}
+\stressj_\text{eq} &=\sqrt{3J_2(\stress^D)} \\
+&=\sqrt{\frac{(\stressj_1-\stressj_2)^2+(\stressj_2-\stressj_3)^2+(\stressj_3-\stressj_1)^2}{2}}\,,
+\end{split}
+\end{displaymath}
+where $\stressj_1\geq\stressj_2\geq\stressj_3$ are the principal stresses of $\stress$.
+\item {\bf Examples}:
+\begin{displaymath}
+\begin{split}
+\stress =\stressj\ev\otimes\ev &\imply\stressj_\text{eq}=\stressj \\
+\stress =\tressj\mv\otimes_s\nv &\imply\stressj_\text{eq}=\sqrt{3}\tressj\,.
+\end{split}
+\end{displaymath}
+\item von Mises yield criterion: 
+\begin{displaymath}
+\stressj_\text{eq}\leq\stressj_0\,.
+\end{displaymath}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Quantifying stresses}{Tresca's criterion}
+
+\begin{itemize}
+\item Tresca's stress for $\tress_\Sigma=\stress\nv-\stressj_{\nj\nj}\nv$: 
+\begin{displaymath}
+\begin{split}
+\tressj_\text{eq} &=\max_{\norm{\nv}=1}\norm{\tress_\Sigma} \\
+&=\demi\max(\abs{\stressj_1-\stressj_2},\abs{\stressj_2-\stressj_3},\abs{\stressj_3-\stressj_1})\,.
+\end{split}
+\end{displaymath}
+\item Maximum shear stress for $\stressj_1\geq\stressj_2\geq\stressj_3$:
+\begin{displaymath}
+\tressj_\text{eq}=\frac{\stressj_1-\stressj_3}{2}\,,
+\end{displaymath}
+which acts on the plane with unit normal $\nv=\frac{{\boldsymbol\Phi}_1\pm{\boldsymbol\Phi}_3}{\sqrt{2}}$ for which:
+\begin{displaymath}
+\stressj_{\nj\nj}=\frac{\stressj_1+\stressj_3}{2}\,.
+\end{displaymath}
+\item Tresca's criterion: 
+\begin{displaymath}
+\tressj_\text{eq}\leq\tressj_0=\frac{\stressj_0}{2}\,.
+\end{displaymath}
+\end{itemize}
+
+\end{frame}

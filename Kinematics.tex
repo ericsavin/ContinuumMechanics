@@ -1,0 +1,21 @@
+\begin{frame}{Kinematics}
+
+\begin{figure}
+\centering\includegraphics[scale=.25]{\figs/ch1-Configs0t}
+\end{figure}
+\begin{displaymath}
+\boxed{\xv=\posiv(\pv,t)\,,\quad\uv=\posiv(\pv,t)-\pv}
+\end{displaymath}
+%\vskip-5pt
+{\footnotesize
+\begin{itemize}
+\item $\pv\mapsto\posiv(\pv,t):\medium_0\to\medium_t$ is injective: two material points cannot occupy the same volume at the same time ($\pv_1\neq\pv_2\imply\xv_1\neq\xv_2$);
+\item $\posiv$ is piecewise $\ContSet^1$ in space $\pv\in\medium_0$ and time $t\in\Rset$;
+\item Some inverse transform $\xv\mapsto\iposiv(\xv,t):\medium_t\to\medium_0$ exists;
+\item Matter cannot vanish:
+\begin{displaymath}
+\det(\ev_1,\ev_2,\ev_3)>0\iff\det(\iv_1,\iv_2,\iv_3)>0\quad\text{for}\;\ev_j=\posiv(\iv_j,t)\,.
+\end{displaymath}
+\end{itemize}}
+
+\end{frame}

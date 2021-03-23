@@ -1,0 +1,206 @@
+\begin{frame}{Recap}
+
+\begin{itemize}
+\item Local equilibrium equation:
+\begin{displaymath}
+\Divx\stress+\fv_v=\roi\ddot{\uv}\,;
+\end{displaymath}
+\item Small strains assumption:
+\begin{displaymath}
+\strain=\demi(\Gradx\uv+\Gradx\uv^\itr)\,;
+\end{displaymath}
+\item Material constitutive equation:
+\begin{displaymath}
+\stress=\tenselas\strain
+\end{displaymath}
+($\stress=\lambda\trace(\strain)\Id+2\mu\strain$ for isotropic elasticity).
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Navier equation}{Elastic waves}
+
+\begin{overprint}
+
+\onslide<1|handout:1>
+\begin{itemize}
+\item $\stress_\xv(\uv)=\tenselas(\strain_\xv(\uv))$, $\strain_\xv(\uv)=\gradx\otimes_s\uv$, and:
+\begin{displaymath}
+\begin{array}{c}
+\Divx\stress_\xv(\uv)+\fv_v=\roi\partial_t^2\uv \\
+(\lambda+\mu)\gradx(\divx\uv)+\mu{\boldsymbol\Delta}_\xv\uv+\fv=\roi\partial_t^2\uv \\
+(\lambda+\mu)\sum_{k=1}^3\frac{\partial^2\uj_k}{\partial\xj_j\partial\xj_k}+\mu\sum_{k=1}^3\frac{\partial^2\uj_j}{\partial\xj_k^2}+\fj_{vj}=\roi\frac{\partial^2\uj_j}{\partial t^2}
+\end{array}
+\end{displaymath}
+%where ${\boldsymbol\Delta}_\xv=\Divx(\Gradx)$ (vector Laplacian).
+\item Body waves {\small(Poisson 1828)}
+\begin{figure}
+\centering\includegraphics[scale=.3]{\figs/ch5-BodyWaves}
+\end{figure}
+\end{itemize}
+
+\onslide<2|handout:2>
+\begin{itemize}
+\item $\stress_\xv(\uv)=\tenselas(\strain_\xv(\uv))$, $\strain_\xv(\uv)=\gradx\otimes_s\uv$, and:
+\begin{displaymath}
+\begin{array}{c}
+\Divx\stress_\xv(\uv)+\fv_v=\roi\partial_t^2\uv \\
+(\lambda+\mu)\gradx(\divx\uv)+\mu{\boldsymbol\Delta}_\xv\uv+\fv=\roi\partial_t^2\uv \\
+(\lambda+\mu)\sum_{k=1}^3\frac{\partial^2\uj_k}{\partial\xj_j\partial\xj_k}+\mu\sum_{k=1}^3\frac{\partial^2\uj_j}{\partial\xj_k^2}+\fj_{vj}=\roi\frac{\partial^2\uj_j}{\partial t^2}
+\end{array}
+\end{displaymath}
+%where ${\boldsymbol\Delta}_\xv=\Divx(\Gradx)$ (vector Laplacian).
+\item Surface waves {\small(Rayleigh 1885, Love 1911, Stoneley 1924)}
+\begin{figure}
+\centering\includegraphics[scale=.3]{\figs/ch5-SurfaceWaves}
+\end{figure}
+\end{itemize}
+
+\onslide<3|handout:3>
+\begin{columns}[t]
+\column{.4\textwidth}
+\centering\includegraphics[scale=0.3]{\figs/ch5-Navier-portrait}
+\column{.6\textwidth}
+\vskip-130pt
+Claude Louis Marie Henri Navier [1785-1836]
+\begin{itemize}
+\item X 1802
+\item Ing\'enieur Ponts-et-Chauss\'ees
+\item Acad\'emie des Sciences 1824
+\item Prof. Analyse et M\'ecanique \`a l'X 1831-1836
+\item \emph{Le Curé de village} (1841)
+\end{itemize}
+\end{columns}
+\href{https://mathshistory.st-andrews.ac.uk/Biographies/Navier/}{\tiny\texttt{https://mathshistory.st-andrews.ac.uk/Biographies/Navier/}}
+
+\end{overprint}
+
+\end{frame}
+
+\begin{frame}{Navier equation}{Initial conditions}
+
+\begin{itemize}
+\item Initial displacement:
+\begin{displaymath}
+\uv(\xv,0)=\uv_0(\xv)\,,\quad\forall\xv\in\medium\,;
+\end{displaymath}
+\item Initial velocity:
+\begin{displaymath}
+\frac{\partial\uv}{\partial t}(\xv,0)=\vv_0(\xv)\,,\quad\forall\xv\in\medium\,.
+\end{displaymath}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Navier equation}{Boundary conditions}
+
+%\begin{columns}[t]
+%\column{.33\textwidth}
+%\centering\includegraphics[scale=.25]{\figs/ch4-Isotropic}
+%\column{.33\textwidth}
+%\centering\includegraphics[scale=.25]{\figs/ch4-Anisotropic1}
+%\column{.33\textwidth}
+%\centering\includegraphics[scale=.25]{\figs/ch4-Anisotropic2}
+%\end{columns}
+\begin{itemize}
+\item Rigid contact:
+\begin{displaymath}
+\uv(\xv,t)=\uv_S(\xv,t)\,,\quad\forall\xv\in\partial\medium_\uj\,,\forall t\,;
+\end{displaymath}
+\item Soft contact:
+\begin{displaymath}
+\stress(\xv,t)\nv(\xv)=\fv_S(\xv,t)\,,\quad\forall\xv\in\partial\medium_\stressj\,,\forall t\,;
+\end{displaymath}
+\item Internal full contact with \emph{e.g.} $\nv=\nv_1=-\nv_2$:
+\begin{displaymath}
+\begin{array}{c}
+\uv_1(\xv,t)=\uv_2(\xv,t)\,, \\
+\stress_1(\xv,t)\nv(\xv)=\stress_2(\xv,t)\nv(\xv)\,,
+\end{array}
+\end{displaymath}
+$\forall\xv\in\partial\medium_1\cap\partial\medium_2$, $\forall t$;
+\item Internal sliding contact without friction:
+\begin{displaymath}
+\begin{array}{c}
+\scal{\uv_1(\xv,t),\nv(\xv)}=\scal{\uv_2(\xv,t),\nv(\xv)}\,, \\
+\scal{\stress_1(\xv,t)\nv(\xv),{\boldsymbol\tau}}=\scal{\stress_2(\xv,t)\nv(\xv),{\boldsymbol\tau}}=\bzero\,,
+\end{array}
+\end{displaymath}
+$\forall{\boldsymbol\tau}\perp\nv(\xv)$, $\forall\xv\in\partial\medium_1\cap\partial\medium_2$, $\forall t$.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Navier equation}{Properties}
+
+\begin{itemize}
+\item \emphb{Existence} of a solution:
+\begin{itemize}
+\item Holds in statics provided that global equilibrium is satisfied;
+\item Holds in dynamics.
+\end{itemize}
+\item \emphb{Uniqueness} of a solution:
+\begin{itemize}
+\item Holds in statics for strains, stresses, and displacements up to a rigid-body motion;
+\item Holds in dynamics for strains, stresses, and displacements.
+\end{itemize}
+\item \emphb{Linearity} (superposition principle, symmetries...).
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Saint-Venant's principle}{...in homogeneous, linear elastic media}
+
+\begin{overprint}
+
+\onslide<1|handout:1>
+\begin{figure}
+\centering\includegraphics[scale=.2]{\figs/ch5-StVenant}
+\end{figure}
+\vskip-10pt
+\begin{quote}
+\item "...the difference between the effects of two different but statically equivalent loads becomes very small at sufficiently large distances from load."\footnote{\tiny A. J. C. B. Saint-Venant, M\'emoire sur la Torsion des Prismes, \emph{Mem. Divers Savants} {\bf 14}, 233-560 (1855).}
+\end{quote}
+\scriptsize{\par\hfill{Adh\'emar Barr\'e de Saint-Venant [1797-1886]}}
+
+\onslide<2|handout:2>
+\begin{columns}[t]
+\column{.4\textwidth}
+\centering\includegraphics[scale=.5]{\figs/ch5-StVenant-portrait}
+\column{.6\textwidth}
+\vskip-80pt
+Adh\'emar Jean Claude Barr\'e de Saint-Venant [1797-1886]
+\begin{itemize}
+\item X 1813
+\item Ing\'enieur Ponts-et-Chauss\'ees
+\item Acad\'emie des Sciences 1868
+\end{itemize}
+\end{columns}
+\href{https://mathshistory.st-andrews.ac.uk/Biographies/Saint-Venant/}{\tiny\texttt{https://mathshistory.st-andrews.ac.uk/Biographies/Saint-Venant/}}
+
+\end{overprint}
+
+\end{frame}
+
+\begin{frame}{Thermoelasticity}{Isotropic case}
+
+\begin{itemize}
+\item Thermal strains in the isotropic case with temperature gradient $\Delta T$:
+\begin{displaymath}
+\strain_\text{th}=\alpha\Delta T\Id
+\end{displaymath}
+where $\alpha$ is the coefficient of linear thermal expansion.
+\item Total strain tensor:
+\begin{displaymath}
+\begin{split}
+\strain &=\strain_\text{elas}+\strain_\text{th} \\
+&=\tenscomp\stress+\alpha\Delta T\Id\,.
+\end{split}
+\end{displaymath}
+\item Linear thermoelastic constitutive equation:
+\begin{displaymath}
+\boxed{\stress=\tenselas(\strain-\alpha\Delta T\Id)}\,.
+\end{displaymath}
+\end{itemize}
+
+\end{frame}

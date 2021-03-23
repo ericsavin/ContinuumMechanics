@@ -1,0 +1,99 @@
+\subsection{Vector \& tensor products}
+
+\begin{frame}{Some algebra}{Vector \& tensor products}
+
+\begin{itemize}
+\item Scalar product:
+\begin{displaymath}
+\av,\bv\in\Rset^a\,,\quad\scal{\av,\bv}=\sum_{j=1}^a\aj_j\bj_j=\aj_j\bj_j\,,
+\end{displaymath}
+The last equality is \emphb{Einstein's summation convention}.
+\item Tensors and tensor product (or outer product):
+\begin{displaymath}
+\Av\in\Rset^a\to\Rset^b\,,\quad\Av=\av\otimes\bv\,,\quad\av\in\Rset^a\,,\bv\in\Rset^b\,.
+\end{displaymath}
+\item Tensor application to vectors:
+\begin{displaymath}
+\Av=\av\otimes\bv\in\Rset^a\to\Rset^b\,,\cv\in\Rset^b\,,\quad\Av\cv=\scal{\bv,\cv}\av\,.
+\end{displaymath}
+\item Product of tensors $\equiv$ composition of linear maps:
+\begin{displaymath}
+\Av=\av\otimes\bv\,,\Bv=\cv\otimes\dv\,,\quad\Av\Bv=\scal{\bv,\cv}\av\otimes\dv\,.
+\end{displaymath}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Some algebra}{Vector \& tensor products}
+
+%\onslide<2|handout:2>
+
+\begin{itemize}
+\item Scalar product of tensors:
+\begin{displaymath}
+\scal{\Av,\Bv}=\trace(\Av\Bv^\itr):=\Av:\Bv=\Aj_{jk}\Bj_{jk}\,.
+\end{displaymath}
+\item Let $\{\ev_j\}_{j=1}^d$ be a Cartesian basis in $\Rset^d$. Then:
+\begin{displaymath}
+\begin{split}
+\aj_j &=\scal{\av,\ev_j}\,, \\
+\Aj_{jk} &=\scal{\Av,\ev_j\otimes\ev_k}=\Av:\ev_j\otimes\ev_k \\
+&=\scal{\Av\ev_k,\ev_j}\,,
+\end{split}
+\end{displaymath}
+such that:
+\begin{displaymath}
+\begin{split}
+\av &=\aj_j\ev_j\,, \\
+\Av &=\Aj_{jk}\ev_j\otimes\ev_k\,.
+\end{split}
+\end{displaymath}
+\item Example: the identity matrix
+\begin{displaymath}
+\Id=\ev_j\otimes\ev_j\,.
+\end{displaymath}
+\end{itemize}
+
+%\end{overprint}
+
+\end{frame}
+
+\subsection{Vector \& tensor analysis}
+
+\begin{frame}{Some analysis}{Vector \& tensor analysis}
+
+\begin{itemize}
+\item Gradient of a vector function $\av(\xv)$, $\xv\in\Rset^d$:
+\begin{displaymath}
+\Gradx\av=\frac{\partial\av}{\partial\xj_j}\otimes\ev_j\,.
+\end{displaymath}
+\item Divergence of a vector function $\av(\xv)$, $\xv\in\Rset^d$:
+\begin{displaymath}
+\divx\av=\scal{\gradx,\av}=\trace(\Gradx\av)=\frac{\partial\aj_j}{\partial\xj_j}\,.
+\end{displaymath}
+\item Divergence of a tensor function $\Av(\xv)$, $\xv\in\Rset^d$:
+\begin{displaymath}
+\Divx\Av=\frac{\partial(\Av\ev_j)}{\partial\xj_j}\,.
+\end{displaymath}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Some analysis}{Vector \& tensor analysis in cylindrical coordinates}
+
+\begin{itemize}
+\item Gradient of a vector function $\av(r,\theta,\zj)$:
+\begin{displaymath}
+\Gradx\av=\frac{\partial\av}{\partial r}\otimes\ev_r+\frac{\partial\av}{\partial\theta}\otimes\frac{\ev_\theta}{r}+\frac{\partial\av}{\partial\zj}\otimes\ev_\zj\,.
+\end{displaymath}
+\item Divergence of a vector function $\av(r,\theta,\zj)$:
+\begin{displaymath}
+\divx\av=\scal{\frac{\partial\av}{\partial r},\ev_r}+\scal{\frac{\partial\av}{\partial\theta},\frac{\ev_\theta}{r}}+\scal{\frac{\partial\av}{\partial\zj},\ev_\zj}\,.
+\end{displaymath}
+\item Divergence of a tensor function $\Av(r,\theta,\zj)$:
+\begin{displaymath}
+\Divx\Av=\frac{\partial\Av}{\partial r}\ev_r+\frac{\partial\Av}{\partial\theta}\frac{\ev_\theta}{r}+\frac{\partial\Av}{\partial\zj}\ev_\zj\,.
+\end{displaymath}
+\end{itemize}
+
+\end{frame}

@@ -1,0 +1,233 @@
+\begin{frame}{Recap}
+
+\begin{itemize}
+\item Local equilibrium equation:
+\begin{displaymath}
+\Divx\stress+\fv_v=\roi\ddot{\uv}\,.
+\end{displaymath}
+\item Small strains assumption:
+\begin{displaymath}
+\strain=\demi(\Gradx\uv+\Gradx\uv^\itr)\,.
+\end{displaymath}
+\item Closure is missing: $\stress=f(\strain)$ or $\strain=g(\stress)$, the \emphb{material constitutive equation}.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Recap}{Traction test}
+
+\begin{overprint}
+
+\onslide<1|handout:1>
+\begin{columns}[t]
+\column{.6\textwidth}
+\centering\includegraphics[scale=.3]{\figs/ch4-TractionTest}
+\column{.4\textwidth}
+\vskip-120pt
+%\begin{center}
+Measurements along $\ev$:
+\begin{itemize}
+\item $\stressj_{ee}=\frac{F}{S}$;
+\item $\strainj_{ee}=\frac{\Delta L}{L}$.
+\end{itemize}
+%\end{center}
+\end{columns}
+
+\onslide<2|handout:2>
+\begin{figure}
+\centering\includegraphics[scale=.2]{\figs/ch4-StressStrain}
+\end{figure}
+\begin{itemize}
+\item Ductile vs. fragile materials;
+\item At small strains $F=K\Delta L$ or $\stressj_{ee}=k\strainj_{ee}$;
+\item Generalization: $\stress=\tenselas\strain$ where $\tenselas$ is the fourth-order ($\tenselasj_{jklm}$) \emphb{elasticity tensor}.
+\end{itemize}
+
+\end{overprint}
+
+\end{frame}
+
+\begin{frame}{Elasticity tensor}{Symmetries}
+
+\begin{itemize}
+\item Fourth-order tensor: linear application between second-order tensors,
+\begin{displaymath}
+\begin{split}
+\stress(\xv,t) &=\tenselas(\xv)\strain(\xv,t)\,,\\
+\stressj_{jk}(\xv,t) &=\tenselasj_{jklm}(\xv)\strainj_{lm}(\xv,t)\,,\quad\forall\xv\in\medium\,,\forall t\in\Rset\,.
+\end{split}
+\end{displaymath}
+\item Minor symmetries from the symmetry of $\strain$ and $\stress$:
+\begin{displaymath}
+\begin{split}
+\tenselasj_{jklm}(\xv) &= \tenselasj_{kjlm}(\xv)\,, \\
+\tenselasj_{jklm}(\xv) &= \tenselasj_{kjml}(\xv)\,.
+\end{split}
+\end{displaymath}
+\item Major symmetry from thermodynamics first principle:
+\begin{displaymath}
+\tenselasj_{jklm}(\xv) = \tenselasj_{lmjk}(\xv)\,.
+\end{displaymath}
+\item \# coefficients: $81\xrightarrow[]{\text{minor symmetries}}36\xrightarrow[]{\text{major symmetry}}21$.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Elasticity tensor}{Isotropy}
+
+\begin{columns}[t]
+\column{.33\textwidth}
+\centering\includegraphics[scale=.25]{\figs/ch4-Isotropic}
+\column{.33\textwidth}
+\centering\includegraphics[scale=.25]{\figs/ch4-Anisotropic1}
+\column{.33\textwidth}
+\centering\includegraphics[scale=.25]{\figs/ch4-Anisotropic2}
+\end{columns}
+\begin{itemize}
+\item Isotropy: the constitutive equation is the same whatever the orientation of the sample is,
+\begin{displaymath}
+\stress=\tenselas\strain\;(\text{sample \#1})\,,\quad\stress^*=\tenselas\strain^*\;(\text{sample \#2})\,.
+\end{displaymath}
+\item Letting $\rotation$ be an arbitrary rotation ($\rotation\rotation^\itr=\Id$):
+\begin{displaymath}
+\strain^*=\rotation\strain\rotation^\itr\,,\quad\stress^*=\rotation\stress\rotation^\itr\,,
+\end{displaymath}
+then:
+\begin{displaymath}
+\stress^*=\rotation\stress\rotation^\itr=\tenselas(\rotation\strain\rotation^\itr)\imply \rotation(\tenselas\strain)\rotation^\itr=\tenselas(\rotation\strain\rotation^\itr)\,.
+\end{displaymath}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Elasticity tensor}{Isotropy}
+
+\begin{itemize}
+\item \emphb{Rivlin-Ericksen theorem}:
+\begin{displaymath}
+\rotation(\tenselas\strain)\rotation^\itr=\tenselas(\rotation\strain\rotation^\itr)\imply\tenselas\strain=\alpha_0\Id+\alpha_1\strain+\alpha_2\strain^2\,,
+\end{displaymath}
+where $\alpha_m(\trace(\strain),\trace(\strain^2),\trace(\strain^3))$, $m=1,2,3$.
+%\item To the leading order in $\text{O}(\strain)$ ($\lambda,\mu$ are Lam\'e's parameters):
+%\begin{displaymath}
+%\tenselas\strain=\lambda(\trace\strain)\Id+2\mu\strain\,.
+%\end{displaymath}
+\vskip20pt
+\begin{columns}[t]
+\column{.5\textwidth}
+\centering\includegraphics[scale=.3]{\figs/ch4-RivlinR}\\
+{\scriptsize Ronald Rivlin [1915--2005]}
+\column{.5\textwidth}
+%\centering\includegraphics[scale=.38]{\figs/ch4-Ericksen}\\
+%\centering\includegraphics[scale=.3]{\figs/ch4-EricksenJ}\\
+\centering\includegraphics[scale=.09]{\figs/ch4-SavinE}\\
+%\centering\includegraphics[scale=.19]{\figs/ch4-AustinP}\\
+{\scriptsize Jerald Ericksen [1925--]}
+\end{columns}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Elasticity tensor}{Isotropy}
+
+\begin{overprint}
+
+\onslide<1|handout:1>
+\begin{itemize}
+\item To the leading order in $\text{O}(\strain)$:
+\begin{displaymath}
+\boxed{\tenselas\strain=\lambda\trace(\strain)\Id+2\mu\strain}
+\end{displaymath}
+where $\lambda,\mu$ are \emphb{Lam\'e's modulii}.
+\item This relationship can be inverted:
+\begin{displaymath}
+\begin{split}
+\strain &=-\frac{\lambda}{2\mu(3\lambda+2\mu)}\trace(\stress)\Id+\frac{1}{2\mu}\stress \\
+&=\alpha\trace(\stress)\Id+\beta\stress \\
+\end{split}
+\end{displaymath}
+where $\alpha,\beta$ are obtained from measurements.
+\item More generally $\strain=\tenscomp\stress$, where $\tenscomp$ is the compliance (fourth-order) tensor.
+\end{itemize}
+
+\onslide<2|handout:2>
+\begin{itemize}
+\item Traction test $\stress=\frac{F}{S}\ev\otimes\ev$:
+\begin{columns}[t]
+\column{.5\textwidth}
+\hspace*{-0.3truecm}\centering\includegraphics[scale=.25]{\figs/ch4-TestEnu}
+\column{.5\textwidth}
+\vskip-140pt
+\emphb{Young's modulus} $E$: 
+\begin{displaymath}
+E=\frac{\stressj_{ee}}{\strainj_{ee}}=\frac{\frac{F}{S}}{\frac{\Delta L}{L_0}}\,;
+\end{displaymath}
+\emphb{Poisson's coefficient} $\nu$:
+\begin{displaymath}
+\nu=-\frac{\strainj_{hh}}{\strainj_{ee}}=-\frac{\frac{\Delta L_H}{L_{H0}}}{\frac{\Delta L}{L_0}}\,.
+\end{displaymath}
+\end{columns}
+\item $E$ is in Pa (GPa), and $\nu$ is dimensionless.
+\end{itemize}
+
+\onslide<3|handout:3>
+\begin{itemize}
+\item $\stress$ and $\strain$ have the same principal directions:
+\begin{figure}
+\centering\includegraphics[scale=.2]{\figs/ch4-Hooke}
+\end{figure}
+\item Along \emph{e.g.} the principal direction \#1:
+\begin{displaymath}
+\strainj_1=\frac{\stressj_1}{E}-\nu\frac{\stressj_2}{E}-\nu\frac{\stressj_3}{E}\,.
+\end{displaymath}
+\item In the basis $(\iv_1,\iv_2,\iv_3)$ of the principal directions:
+\begin{displaymath}
+\begin{split}
+\strain &=\, \scriptstyle (\frac{\stressj_1}{E}-\nu\frac{\stressj_2+\stressj_3}{E}) \iv_1\otimes\iv_1 + (\frac{\stressj_2}{E}-\nu\frac{\stressj_1+\stressj_3}{E}) \iv_2\otimes\iv_2 + (\frac{\stressj_3}{E}-\nu\frac{\stressj_1+\stressj_2}{E}) \iv_3\otimes\iv_3 \\
+&=\, \scriptstyle \frac{1+\nu}{E}\stress-\frac{\nu}{E}\trace(\stress)\Id\,.
+\end{split}
+\end{displaymath}
+\end{itemize}
+
+\onslide<4|handout:4>
+\begin{itemize}
+\item Recap: linear elastic isotropy has 2 coefficients,
+\begin{displaymath}
+\begin{split}
+\stress &=\tenselas\strain=\lambda\trace(\strain)\Id+2\mu\strain\,, \\
+\strain &=\tenscomp\stress=\frac{1+\nu}{E}\stress-\frac{\nu}{E}\trace(\stress)\Id\,.
+\end{split}
+\end{displaymath}
+\item $\lambda(\xv),\mu(\xv)$ are Lam\'e's modulii, $E(\xv)$ is Young's modulus, $\nu(\xv)$ is Poisson's ratio:
+\begin{displaymath}
+\lambda=\frac{\nu E}{(1+\nu)(1-2\nu)}\,,\quad\mu=\frac{E}{2(1+\nu)}\,.
+\end{displaymath}
+\item $E>0$, $\mu>0$, $3\lambda+2\mu>0$, and $-1<\nu<0.5$.
+\end{itemize}
+
+\end{overprint}
+
+\end{frame}
+
+\begin{frame}{Thermoelasticity}{Isotropic case}
+
+\begin{itemize}
+\item Thermal strains in the isotropic case with temperature gradient $\Delta T$:
+\begin{displaymath}
+\strain_\text{th}=\alpha\Delta T\Id
+\end{displaymath}
+where $\alpha$ is the coefficient of linear thermal expansion.
+\item Total strain tensor:
+\begin{displaymath}
+\begin{split}
+\strain &=\strain_\text{elas}+\strain_\text{th} \\
+&=\tenscomp\stress+\alpha\Delta T\Id\,.
+\end{split}
+\end{displaymath}
+\item Linear thermoelastic constitutive equation:
+\begin{displaymath}
+\boxed{\stress=\tenselas(\strain-\alpha\Delta T\Id)}\,.
+\end{displaymath}
+\end{itemize}
+
+\end{frame}

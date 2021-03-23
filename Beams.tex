@@ -1,0 +1,403 @@
+\section{Kinematics}
+
+\begin{frame}{Beam kinematics}{Reference configuration}
+
+\begin{figure}
+\centering\includegraphics[scale=.25]{\figs/ch7-Kinematics-p}
+\end{figure}
+
+\begin{displaymath}
+\begin{split}
+\pv(s,\xiu,\xid) &=\pv_G(s)+\pv_\Sigma(\xiu,\xid) \\
+&= s\ev+\chi_1\ev_{\chi_1}+\chi_2\ev_{\chi_2}
+\end{split}
+\end{displaymath}
+
+\end{frame}
+
+\begin{frame}{Beam kinematics}{Actual configuration}
+
+\vskip-10pt
+%\begin{figure}
+%\centering\includegraphics[scale=.3]{\figs/ch7-Kinematics-x}
+%\end{figure}
+\begin{columns}
+\column{.4\textwidth}
+\centering\includegraphics[scale=.25]{\figs/ch7-Kinematics-x}
+\column{.6\textwidth}
+\centering\includegraphics[scale=.25]{\figs/ch7-Accordeon}
+\end{columns}
+
+%\vskip-10pt
+\begin{displaymath}
+\begin{split}
+\xv &=\xv_G(s)+\xv_\Sigma \\
+&= \xv_G(s)+\Rot(s)\pv_\Sigma
+\end{split}
+\end{displaymath}
+
+\end{frame}
+
+\begin{frame}{Beam kinematics}{Small perturbations -- Timoshenko}
+
+\vskip-10pt
+\begin{figure}
+\centering\includegraphics[scale=.2]{\figs/ch7-Kinematics-Timoshenko}
+\end{figure}
+\vskip-10pt
+\begin{itemize}
+\item Small perturbations $\Rot(s)=\Id+\dRot(s)$, $\dRot(s)^\itr=-\dRot(s)$:
+\begin{displaymath}
+\begin{split}
+\xv_\Sigma &= \Rot(s)\pv_\Sigma \\
+&=(\Id+\dRot(s))\pv_\Sigma\,.
+\end{split}
+\end{displaymath}
+\item Small displacement $\xv_\Sigma\simeq\pv_\Sigma$:
+\begin{displaymath}
+\begin{split}
+\uv &= \xv-\pv \\
+&=\uv_G(s)+\drot(s)\times\xv_\Sigma\,.
+\end{split}
+\end{displaymath}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Beam kinematics}{Small perturbations -- Euler-Bernoulli}
+
+\vskip-10pt
+\begin{figure}
+\centering\includegraphics[scale=.3]{\figs/ch7-Kinematics-EBernoulli}
+\end{figure}
+\vskip-10pt
+\begin{itemize}
+\item Cross-sections remain perpendicular to the neutral line:
+\begin{displaymath}
+\Rot(s)\ev=\frac{\xv_G'(s)}{\norm{\xv_G'(s)}}\,.
+\end{displaymath}
+\item Small perturbations $\Rot(s)\ev=(\Id+\dRot(s))\ev\simeq\ev+\uv_G'(s)$:
+\begin{displaymath}
+\boxed{\drot_\Sigma(s)=\ev\times\uv_{G\Sigma}'(s)}
+\end{displaymath}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Recap: 1.3 Large beam bending}
+
+\vskip-20pt
+\begin{figure}
+\centering\includegraphics[scale=.2]{\figs/ch1-BeamStraight-c}
+\end{figure}
+\vskip-10pt
+\begin{columns}
+\column{.5\textwidth}
+\centering\includegraphics[scale=.2]{\figs/ch1-BeamHalfCircle-c}\\
+$\alpha=1$
+\column{.5\textwidth}
+\centering\includegraphics[scale=.2]{\figs/ch1-BeamHalfCircleAlpha-c}\\
+$\alpha=1.1$
+\end{columns}
+
+\end{frame}
+
+\begin{frame}{Beam kinematics}{Independent unknowns}
+
+\begin{figure}
+\centering\includegraphics[scale=.2]{\figs/ch7-KinUnknowns}
+\end{figure}
+
+\begin{itemize}
+\item Elongation $\uj_{Ge}=\scal{\uv_G,\ev}$;
+\item Deflection $\uv_{G\Sigma}=\uv_G-\uj_{Ge}\ev$;
+\item Torsion rotation $\drotj_e=\scal{\drot,\ev}$.
+\end{itemize}
+
+\end{frame}
+
+\section{Statics}
+
+\begin{frame}{Beam statics}{Resultant forces}
+
+\begin{figure}
+\centering\includegraphics[scale=.2]{\figs/ch7-Forces}
+\end{figure}
+
+\begin{itemize}
+\item Resultant force:
+\begin{displaymath}
+\Fres(s)=\int_\Sigma\stress\ev\,\id S\,;
+\end{displaymath}
+\item Normal force $\Fresj(s)=\scal{\Fres(s),\ev}$;
+\item Shear force $\Fres_\Sigma(s)=\Fres(s)-\Fresj_e(s)\ev$;
+\item $\Fres(0)$ and $\Fres(L)$ given by the boundary conditions.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Beam statics}{Resultant moments}
+
+\begin{figure}
+\centering\includegraphics[scale=.2]{\figs/ch7-Moments}
+\end{figure}
+
+\begin{itemize}
+\item Resultant moment:
+\begin{displaymath}
+\Mres(s)=\int_\Sigma\xv_\Sigma\times\stress\ev\,\id S\,;
+\end{displaymath}
+\item Torsion moment $\Mresj(s)=\scal{\Mres(s),\ev}$;
+\item Bending moment $\Mres_\Sigma(s)=\Mres(s)-\Mresj_e(s)\ev$;
+\item $\Mres(0)$ and $\Mres(L)$ given by the boundary conditions.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Beam statics}{Balance of forces}
+
+\begin{figure}
+\centering\includegraphics[scale=.25]{\figs/ch7-EqForces}
+\end{figure}
+
+\begin{itemize}
+\item Linear external forces:
+\begin{displaymath}
+\fv_l(s)=\int_\Sigma\fv_v\id S + \int_{\partial\Sigma}\fv_s\id\zeta\,;
+\end{displaymath}
+\item Equilibrium of the cross-section:
+\begin{displaymath}
+\Fres'(s)+\fv_l(s)=\bzero\,.
+\end{displaymath}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Beam statics}{Balance of moments}
+
+\begin{figure}
+\centering\includegraphics[scale=.25]{\figs/ch7-EqMoments}
+\end{figure}
+
+\begin{itemize}
+\item Linear external torques:
+\begin{displaymath}
+\cv_l(s)=\int_\Sigma\xv_\Sigma\times\fv_v\id S + \int_{\partial\Sigma}\xv_\Sigma\times\fv_s\id\zeta\,;
+\end{displaymath}
+\item Equilibrium of the cross-section:
+\begin{displaymath}
+\Mres'(s)+\ev\times\Fres(s)+\cv_l(s)=\bzero\,.
+\end{displaymath}
+\end{itemize}
+
+\end{frame}
+
+\section{Beam stresses}
+
+\begin{frame}{Beam elastic law}{Traction vector}
+
+\begin{itemize}
+\item Recap: basic kinematic assumption (Timoshenko)
+\begin{displaymath}
+\uv=\uv_G(s)+\drot(s)\times\xv_\Sigma\,;
+\end{displaymath}
+\item Linearized strains $\xv_\Sigma\simeq\pv_\Sigma$:
+\begin{displaymath}
+\strain=(\uv_G'+\drot'\times\xv_\Sigma)\otimes_s\ev-(\drot_\Sigma\times\ev)\otimes_s\ev\,;
+\end{displaymath}
+\item Linear elastic, isotropic behavior:
+\begin{displaymath}
+\begin{split}
+\stress &=\lambda\trace(\strain)\Id+2\mu\strain \\
+&=\lambda\strainj_{ee}\Id+2\mu(\strainj_{ee}\ev+{\color{green}{{\boldsymbol\gamma}_\Sigma}})\otimes_s\ev+{\color{green}{\stress_\Sigma}}\,;
+\end{split}
+\end{displaymath}
+\item Traction vector:
+\begin{displaymath}
+\stress\ev=E(\underbrace{\uj_{Ge}'\ev}_{\color{red}{//\ev}}+\underbrace{\drot_\Sigma'\times\xv_\Sigma}_{\color{red}{//\ev,\propto\xv_\Sigma}})+\mu(\underbrace{\uv_{G\Sigma}'-\drot_\Sigma\times\ev}_{\color{red}{\perp\ev}}+\underbrace{\drotj_e'\ev\times\xv_\Sigma}_{\color{red}{\perp\ev,\propto\xv_\Sigma}})\,.
+\end{displaymath}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Beam elastic law}{Resultant force with Timoshenko's kinematical assumption}
+
+\begin{itemize}
+\item Recap: resultant force
+\begin{displaymath}
+\Fres=\int_\Sigma\stress\ev\,\id S\,;
+\end{displaymath}
+\item Assuming $\int_\Sigma\xv_\Sigma\id S=\bzero$, $S=\int_\Sigma\id S$:
+\begin{displaymath}
+\begin{split}
+\Fres &= \;\scriptstyle \int_\Sigma E(\uj_{Ge}'\ev+\cancel{\drot_\Sigma'\times\xv_\Sigma})\id S+\int_\Sigma\mu(\uv_{G\Sigma}'-\drot_\Sigma\times\ev+\cancel{\drotj_e'\ev\times\xv_\Sigma})\id S \\
+&=ES\uj_{Ge}'\ev+\Fres_\Sigma\,;
+\end{split}
+\end{displaymath}
+\item Shear force with Timoshenko's assumption:
+\begin{displaymath}
+\Fres_\Sigma=\mu S(\uv_{G\Sigma}'-\drot_\Sigma\times\ev)\,.
+\end{displaymath}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Beam elastic law}{Resultant force with Euler-Bernoulli's kinematical assumption}
+
+\begin{itemize}
+\item Recap: resultant force
+\begin{displaymath}
+\Fres=\int_\Sigma\stress\ev\,\id S\,;
+\end{displaymath}
+\item Assuming $\int_\Sigma\xv_\Sigma\id S=\bzero$, $S=\int_\Sigma\id S$:
+\begin{displaymath}
+\begin{split}
+\Fres &= \;\scriptstyle \int_\Sigma E(\uj_{Ge}'\ev+\cancel{\drot_\Sigma'\times\xv_\Sigma})\id S+\int_\Sigma\mu(\underbrace{\cancel{\uv_{G\Sigma}'-\drot_\Sigma\times\ev}}_{=\bzero\,\text{by Euler-Bernoulli}}+\cancel{\drotj_e'\ev\times\xv_\Sigma})\id S \\
+&=ES\uj_{Ge}'\ev+\Fres_\Sigma\,;
+\end{split}
+\end{displaymath}
+\item Shear force with Euler-Bernoulli's assumption:
+\begin{displaymath}
+\begin{split}
+\Mres'+\ev\times\Fres+\cv_l=\bzero \\
+\imply\quad \Fres_\Sigma=\ev\times(\Mres_\Sigma'+\cv_l)\,.
+\end{split}
+\end{displaymath}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Beam elastic law}{Resultant moment}
+
+\begin{itemize}
+\item Recap: resultant moment
+\begin{displaymath}
+\Mres=\int_\Sigma\xv_\Sigma\times\stress\ev\,\id S\,;
+\end{displaymath}
+\item Assuming $\int_\Sigma\xv_\Sigma\id S=\bzero$:
+\begin{displaymath}
+\begin{split}
+\Mres &= \;\scriptstyle \int_\Sigma E(\cancel{\xv_\Sigma\times\uj_{Ge}'\ev}+\xv_\Sigma\times(\drot_\Sigma'\times\xv_\Sigma))\id S \\
+&\quad\quad\scriptstyle+\int_\Sigma\mu(\cancel{\xv_\Sigma\times(\uv_{G\Sigma}'-\drot_\Sigma\times\ev)}+\xv_\Sigma\times(\drotj_e'\ev\times\xv_\Sigma))\id S \\
+&=E\Mstatic(\drot_\Sigma')+\mu\Mstatic(\drotj_e'\ev)\,;
+\end{split}
+\end{displaymath}
+\item (Symmetric) inertia tensor:
+\begin{displaymath}
+\Mstatic=\int_\Sigma(\norm{\xv_\Sigma}^2\Id-\xv_\Sigma\otimes\xv_\Sigma)\,\id S\,;
+\end{displaymath}
+\end{itemize}
+
+\begin{overprint}
+
+\onslide<1|handout:1>
+\begin{itemize}
+\item Bending moment with Timoshenko's assumption:
+\begin{displaymath}
+\Mres_\Sigma=E\Mstatic(\drot_\Sigma')\,.
+\end{displaymath}
+\end{itemize}
+
+\onslide<2|handout:2>
+\begin{itemize}
+\item Bending moment with Euler-Bernoulli's assumption:
+\begin{displaymath}
+\Mres_\Sigma=E\Mstatic(\ev\times\uv_{G\Sigma}'')\,.
+\end{displaymath}
+\end{itemize}
+
+\end{overprint}
+
+\end{frame}
+
+\begin{frame}{Summary}{}
+
+\begin{columns}[t]
+\column{.5\textwidth}
+\centering{Constitutive equations}:
+\begin{displaymath}
+\begin{array}{c}
+\Fres=ES\uj_{Ge}'\ev+\Fres_\Sigma \\
+\Fres_\Sigma=\ev\times(\Mres_\Sigma'+\cv_l)
+\end{array}
+\end{displaymath}
+\begin{displaymath}
+\begin{array}{c}
+\Mres_\Sigma=E\Mstatic(\ev\times\uv_{G\Sigma}'') \\
+\Mresj_e=\mu\Mstaticj_e\drotj'_e
+\end{array}
+\end{displaymath}
+\begin{displaymath}
+\begin{split}
+\Mstaticj_e &=\scal{\Mstatic\ev,\ev} \\
+&=\int_\Sigma\norm{\xv_\Sigma}^2\id S
+\end{split}
+\end{displaymath}
+\column{.5\textwidth}
+\centering Static equilibrium:
+\begin{displaymath}
+\begin{array}{c}
+\Fres'+\fv_l=\bzero
+\end{array}
+\end{displaymath}
+\vskip-7pt
+\begin{displaymath}
+\begin{array}{c}
+\Mres_\Sigma''-\ev\times\fv_l+\cv_{l\Sigma}'=\bzero \\
+\Mresj_e'+\cj_{le}=0
+\end{array}
+\end{displaymath}
+\end{columns}
+
+\end{frame}
+
+\begin{frame}{Differential equations}{}
+
+\begin{itemize}
+\item Elongation:
+\begin{displaymath}
+\boxed{ES\uj_{Ge}''(s)+\scal{\fv_l(s),\ev}=0}
+\end{displaymath}
+with either kinematical $\uj_{Ge}(0),\uj_{Ge}(L)$ or mechanical $\Fresj_e(0),\Fresj_e(L)$ boundary conditions.
+\item Torsion:
+\begin{displaymath}
+\boxed{\mu\Mstaticj_e\drotj_e''(s)+\scal{\cv_l(s),\ev}=0}
+\end{displaymath}
+with either kinematical $\drotj_e(0),\drotj_e(L)$ or mechanical $\Mresj_e(0),\Mresj_e(L)$ boundary conditions.
+\item Bending:
+\begin{displaymath}
+\boxed{E\Mstatic(\ev\times\uv_{G\Sigma}^{(IV)}(s))-\ev\times\fv_l(s)+\cv_{l\Sigma}'(s)=\bzero}
+\end{displaymath}
+with~either~kinematical~$\uv_{G\Sigma}(0),\uv_{G\Sigma}(L),\uv_{G\Sigma}'(0),\uv_{G\Sigma}'(L)$ or mechanical $\Mres_\Sigma(0),\Mres_\Sigma(L),\Fres_\Sigma(0),\Fres_\Sigma(L)$ boundary conditions.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Back to stresses...}{}
+
+\begin{itemize}
+\item Recap: traction vector
+\begin{displaymath}
+\begin{split}
+\stress\ev &=E(\underbrace{\uj_{Ge}'\ev}_{\color{red}{//\ev}}+\underbrace{\drot_\Sigma'\times\xv_\Sigma}_{\color{red}{//\ev,\propto\xv_\Sigma}})+\mu(\underbrace{\uv_{G\Sigma}'-\drot_\Sigma\times\ev}_{\color{red}{\perp\ev}}+\underbrace{\drotj_e'\ev\times\xv_\Sigma}_{\color{red}{\perp\ev,\propto\xv_\Sigma}}) \\
+&=\stressj_{ee}\ev+\tress_\Sigma\,;
+\end{split}
+\end{displaymath}
+\item Normal stress:
+\begin{displaymath}
+\begin{split}
+\stressj_{ee} &=E(\uj_{Ge}'+\scal{\drot_\Sigma'\times\xv_\Sigma,\ev}) \\
+&=\frac{\Fresj_e}{S}+\scal{\xv_\Sigma,\ev\times\Mstatic^{-1}(\Mres_\Sigma)}\,;
+\end{split}
+\end{displaymath}
+\item Shear stress:
+\begin{displaymath}
+\begin{split}
+\tress_\Sigma &= \mu(\uv_{G\Sigma}'-\drot_\Sigma\times\ev)+\mu\drotj_e'(\ev\times\xv_\Sigma)\\
+&=\frac{\Fres_\Sigma}{S}+\frac{\Mresj_e}{\Mstaticj_e}(\ev\times\xv_\Sigma)\,.
+\end{split}
+\end{displaymath}
+\end{itemize}
+
+\end{frame}
+

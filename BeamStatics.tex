@@ -1,0 +1,159 @@
+\definecolor{ultramarine}{rgb}{0.07, 0.04, 0.56} 
+\definecolor{aqua}{rgb}{0, 255, 255}
+
+\begin{frame}{Beam statics}{Resultant forces}
+
+\begin{figure}
+\centering\includegraphics[scale=.2]{\figs/ch7-Forces}
+\end{figure}
+
+\begin{itemize}
+\item Resultant force:
+\begin{displaymath}
+\Fres(s)=\int_\Sigma\stress\ev\,\id S\,;
+\end{displaymath}
+\item Normal force $\Fresj_e(s)=\scal{\Fres(s),\ev}$;
+\item Shear force $\Fres_\Sigma(s)=\Fres(s)-\Fresj_e(s)\ev$;
+\item $\Fres(0)$ and $\Fres(L)$ given by the boundary conditions.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Beam statics}{Resultant moments}
+
+\begin{figure}
+\centering\includegraphics[scale=.2]{\figs/ch7-Moments}
+\end{figure}
+
+\begin{itemize}
+\item Resultant moment:
+\begin{displaymath}
+\Mres(s)=\int_\Sigma\xv_\Sigma\times\stress\ev\,\id S\,;
+\end{displaymath}
+\item Torsion moment $\Mresj_e(s)=\scal{\Mres(s),\ev}$;
+\item Bending moment $\Mres_\Sigma(s)=\Mres(s)-\Mresj_e(s)\ev$;
+\item $\Mres(0)$ and $\Mres(L)$ given by the boundary conditions.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Beam statics}{Local balance of forces}
+
+\begin{figure}
+\centering\includegraphics[scale=.25]{\figs/ch7-EqForces}
+\end{figure}
+
+\begin{itemize}
+\item Linear external forces:
+\begin{displaymath}
+\fv_l(s)=\int_\Sigma\fv_v\id S + \int_{\partial\Sigma}\fv_s\id\zeta\,;
+\end{displaymath}
+\item Local equilibrium of the cross-section:
+\begin{displaymath}
+\Fres'(s)+\fv_l(s)=\bzero\,.
+\end{displaymath}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Beam statics}{Local balance of moments}
+
+\begin{figure}
+\centering\includegraphics[scale=.25]{\figs/ch7-EqMoments}
+\end{figure}
+
+\begin{itemize}
+\item Linear external torques:
+\begin{displaymath}
+\cv_l(s)=\int_\Sigma\xv_\Sigma\times\fv_v\id S + \int_{\partial\Sigma}\xv_\Sigma\times\fv_s\id\zeta\,;
+\end{displaymath}
+\item Local equilibrium of the cross-section:
+\begin{displaymath}
+\Mres'(s)+\ev\times\Fres(s)+\cv_l(s)=\bzero\,.
+\end{displaymath}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Beam statics}{Local balance of forces--alternative point of view}
+
+\begin{itemize}
+\item Local static equilibrium of a continuum medium:
+\begin{displaymath}
+\Div\stress+\fv_v=\bzero\,.
+\end{displaymath}
+\item Then integrate over the cross-section $\Sigma$:
+\begin{displaymath}
+\begin{split}
+\bzero &=\int_\Sigma\Div\stress\,\id S+\int_\Sigma\fv_v\,\id S \\
+&=\int_\Sigma\frac{\partial\stress}{\partial s}\ev\,\id S + \int_\Sigma\Div_\Sigma\stress\,\id S +\int_\Sigma\fv_v\,\id S \\
+&=\frac{\partial}{\partial s}\left(\int_\Sigma\stress\ev\,\id S\right)+\int_{\partial\Sigma}\stress\nv\,\id\zeta +\int_\Sigma\fv_v\,\id S \\
+&=\Fres'(s)+ \int_{\partial\Sigma}\fv_s\,\id\zeta +\int_\Sigma\fv_v\,\id S \\
+&=\Fres'(s)+\fv_l(s)\,.
+\end{split}
+\end{displaymath}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Beam statics}{Local balance of moments--alternative point of view}
+
+\begin{itemize}
+%\item Local static equilibrium of a continuum medium:
+%\begin{displaymath}
+%\Div\stress+\fv_v=\bzero\,.
+%\end{displaymath}
+\item Then integrate over the cross-section $\Sigma$:
+\begin{displaymath}
+\begin{split}
+\!\!\!\!\!\!\!\!\!\!\!\!\!\! \bzero &=\int_\Sigma\xv_\Sigma\times\Div\stress\,\id S+\int_\Sigma\xv_\Sigma\times\fv_v\,\id S \\
+\!\!\!\!\!\!\!\!\!\!\!\!\!\! &= \int_\Sigma\xv_\Sigma\times\frac{\partial\stress}{\partial s}\ev\,\id S + \int_\Sigma\xv_\Sigma\times\frac{\partial\stress\ev_\alpha}{\partial\xj_\alpha}\,\id S +\int_\Sigma\xv_\Sigma\times\fv_v\,\id S \\
+\!\!\!\!\!\!\!\!\!\!\!\!\!\! &= \frac{\partial}{\partial s}\left(\int_\Sigma\xv_\Sigma\times\stress\ev\,\id S\right)+\int_\Sigma\frac{\partial(\xv_\Sigma\times\stress\ev_\alpha)}{\partial\xj_\alpha}\,\id S \\
+\!\!\!\!\!\!\!\!\!\!\!\!\!\! &\quad\quad -\int_\Sigma\ev_\alpha\times\stress\ev_\alpha\,\id S +\int_\Sigma\xv_\Sigma\times\fv_v\,\id S \\
+\!\!\!\!\!\!\!\!\!\!\!\!\!\! &=\Mres'(s)+ \int_{\partial\Sigma}\xv_\Sigma\times\stress\nv\,\id\zeta + \int_\Sigma\ev\times\stress\ev\,\id S + \int_\Sigma\xv_\Sigma\times\fv_v\,\id S \\
+\!\!\!\!\!\!\!\!\!\!\!\!\!\! &=\Mres'(s)+\ev\times\Fres(s)+\cv_l(s)\,,
+\end{split}
+\end{displaymath}
+since $\ev_\alpha\times\stress\ev_\alpha+\ev\times\stress\ev=\bzero$ from the symmetry of $\stress$.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Beam statics}{Global balance of forces}
+
+\begin{figure}
+\centering\includegraphics[scale=.25]{\figs/ch7-Forces2}
+\end{figure}
+
+\begin{itemize}
+\item Global equilibrium of the \textcolor{aqua}{left section} $s\in[0,s]$:
+\begin{displaymath}
+\Fres(s)-\Fres(0)+\int_0^s\fv_l\id \zeta=\bzero\,;
+\end{displaymath}
+\item  Global equilibrium of the \textcolor{yellow}{right section} $s\in[s,L]$:
+\begin{displaymath}
+\Fres(L)-\Fres(s)+\int_s^L\fv_l\id \zeta=\bzero\,.
+\end{displaymath}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Beam statics}{Global balance of moments}
+
+\begin{figure}
+\centering\includegraphics[scale=.25]{\figs/ch7-Moments2}
+\end{figure}
+
+\begin{itemize}
+\item Global equilibrium of the \textcolor{aqua}{left section} $s\in[0,s]$:
+\begin{displaymath}
+\!\!\!\!\Mres(s)-\Mres(0)+s\ev\times\Fres(0)+\int_0^s(\cv_l+(\zeta-s)\ev\times\fv_l)\,\id \zeta=\bzero\,;
+\end{displaymath}
+\item  Global equilibrium of the \textcolor{yellow}{right section} $s\in[s,L]$:
+\begin{displaymath}
+\!\!\!\!\Mres(L)+(L-s)\ev\times\Fres(L)-\Mres(s)+\int_s^L(\cv_l+(\zeta-s)\ev\times\fv_l)\,\id \zeta=\bzero\,.
+\end{displaymath}
+\end{itemize}
+
+\end{frame}
+

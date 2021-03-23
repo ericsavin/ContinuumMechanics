@@ -1,0 +1,115 @@
+\begin{frame}{Beam kinematics}{Reference configuration}
+
+\begin{figure}
+\centering\includegraphics[scale=.25]{\figs/ch7-Kinematics-p}
+\end{figure}
+
+\begin{displaymath}
+\begin{split}
+\pv(s,\xiu,\xid) &=\pv_G(s)+\pv_\Sigma(\xiu,\xid) \\
+&= s\ev+\chi_1\ev_{\chi_1}+\chi_2\ev_{\chi_2}
+\end{split}
+\end{displaymath}
+
+\end{frame}
+
+\begin{frame}{Beam kinematics}{Actual configuration}
+
+\vskip-10pt
+%\begin{figure}
+%\centering\includegraphics[scale=.3]{\figs/ch7-Kinematics-x}
+%\end{figure}
+\begin{columns}
+\column{.4\textwidth}
+\centering\includegraphics[scale=.25]{\figs/ch7-Kinematics-x}
+\column{.6\textwidth}
+\centering\includegraphics[scale=.25]{\figs/ch7-Accordeon}
+\end{columns}
+
+%\vskip-10pt
+\begin{displaymath}
+\begin{split}
+\xv &=\xv_G(s)+\xv_\Sigma \\
+&= \xv_G(s)+\Rot(s)\pv_\Sigma
+\end{split}
+\end{displaymath}
+
+\end{frame}
+
+\begin{frame}{Beam kinematics}{Small perturbations -- Timoshenko}
+
+\vskip-10pt
+\begin{figure}
+\centering\includegraphics[scale=.2]{\figs/ch7-Kinematics-Timoshenko}
+\end{figure}
+\vskip-10pt
+\begin{itemize}
+\item Small perturbations $\Rot(s)=\Id+\dRot(s)$, $\dRot(s)^\itr=-\dRot(s)$:
+\begin{displaymath}
+\begin{split}
+\xv_\Sigma &= \Rot(s)\pv_\Sigma \\
+&=(\Id+\dRot(s))\pv_\Sigma\,.
+\end{split}
+\end{displaymath}
+\item Small displacement $\xv_\Sigma\simeq\pv_\Sigma$:
+\begin{displaymath}
+\begin{split}
+\uv &= \xv-\pv \\
+&=\uv_G(s)+\drot(s)\times\xv_\Sigma\,.
+\end{split}
+\end{displaymath}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Beam kinematics}{Small perturbations -- Euler-Bernoulli}
+
+\vskip-10pt
+\begin{figure}
+\centering\includegraphics[scale=.3]{\figs/ch7-Kinematics-EBernoulli}
+\end{figure}
+\vskip-10pt
+\begin{itemize}
+\item Cross-sections remain perpendicular to the neutral line:
+\begin{displaymath}
+\Rot(s)\ev=\frac{\xv_G'(s)}{\norm{\xv_G'(s)}}\,.
+\end{displaymath}
+\item Small perturbations $\Rot(s)\ev=(\Id+\dRot(s))\ev\simeq\ev+\uv_G'(s)$:
+\begin{displaymath}
+\boxed{\drot_\Sigma(s)=\ev\times\uv_{G\Sigma}'(s)}
+\end{displaymath}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Recap: 1.3 Large beam bending}
+
+\vskip-20pt
+\begin{figure}
+\centering\includegraphics[scale=.2]{\figs/ch1-BeamStraight-c}
+\end{figure}
+\vskip-10pt
+\begin{columns}
+\column{.5\textwidth}
+\centering\includegraphics[scale=.2]{\figs/ch1-BeamHalfCircle-c}\\
+$\alpha=1$
+\column{.5\textwidth}
+\centering\includegraphics[scale=.2]{\figs/ch1-BeamHalfCircleAlpha-c}\\
+$\alpha=1.1$
+\end{columns}
+
+\end{frame}
+
+\begin{frame}{Beam kinematics}{Independent unknowns}
+
+\begin{figure}
+\centering\includegraphics[scale=.2]{\figs/ch7-KinUnknowns}
+\end{figure}
+
+\begin{itemize}
+\item Elongation $\uj_{Ge}=\scal{\uv_G,\ev}$;
+\item Deflection $\uv_{G\Sigma}=\uv_G-\uj_{Ge}\ev$;
+\item Torsion rotation $\drotj_e=\scal{\drot,\ev}$.
+\end{itemize}
+
+\end{frame}
