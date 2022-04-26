@@ -19,4 +19,4 @@ Students should be convinced of the ubiquity of the concepts and tools of mechan
 
 ### Textbook
 
-[G. Puel, A.-L. Hamon. *Mécanique pour l'ingénieur. Milieux continus solides et fluides, systèmes multicorps, structures*. Dunod, Paris (2021).](https://www.dunod.com/sciences-techniques/mecanique-pour-ingenieur-milieux-continus-solides-et-fluides-systemes-multicorps)
+[G. Puel, A.-L. Hamon. *Mécanique pour l'Ingénieur. Milieux Continus Solides et Fluides, Systèmes Multicorps, Structures*. Dunod, Paris (2021).](https://www.dunod.com/sciences-techniques/mecanique-pour-ingenieur-milieux-continus-solides-et-fluides-systemes-multicorps)
