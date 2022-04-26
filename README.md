@@ -1,2 +1,3 @@
-# ContinuumMechanics
-Teaching documents for the undergrad lectures on continuum mechanics, structural mechanics, and rigid body dynamics at www.centralesupelec.fr
+# Continuum Mechanics
+
+Teaching documents for the undergrad lectures on continuum mechanics and structural mechanics at [CentraleSupélec](www.centralesupelec.fr).
