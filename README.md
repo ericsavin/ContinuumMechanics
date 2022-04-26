@@ -6,7 +6,7 @@ Teaching documents for the undergraduate lectures on continuum mechanics and str
 
 Students should be convinced of the ubiquity of the concepts and tools of mechanics not only in any industrial project implying either basic or advanced technology but also in earth and life sciences. Continuum mechanics is at the heart of climate or ice-sheet models, growth of plants and trees and even the development of an embryo or DNA replication. The basic concepts are introduced in a common unified framework for tridimensional deformable solids and slender structures--beams in particular. Problems involving mechanics at different scales illustrate the course, with some applications to civil engineering, transportation, biomechanics and nanotechnology typically.
 
-### SYLLABUS
+## SYLLABUS
 
 * Strain: Lagrangian description of motion, Green-Lagrange strain tensor, infinitesimal strain tensor;
 * Stress: global equilibrium equations of extended bodies, Cauchy stress tensor, local equilibrium equation of the continuum;
@@ -17,6 +17,6 @@ Students should be convinced of the ubiquity of the concepts and tools of mechan
 * Beam approximation: approximate kinematics, constitutive equations, connections;
 * Beam approximation: solution methods, buckling phenomenon.
 
-### TEXTBOOK
+## TEXTBOOK
 
 [G. Puel, A.-L. Hamon. *Mécanique pour l'Ingénieur. Milieux Continus Solides et Fluides, Systèmes Multicorps, Structures*. Dunod, Paris (2021).](https://www.dunod.com/sciences-techniques/mecanique-pour-ingenieur-milieux-continus-solides-et-fluides-systemes-multicorps)
